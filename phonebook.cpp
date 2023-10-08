@@ -32,7 +32,11 @@ std::string PhoneBook::enter_index(int i)
     std::cout << "enter your contact index : ";
     std::cin >> num;
     if (num < 0 || num > 7 || std::cin.fail())
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return (std::cout << "input invalid, try again" << std::endl, "error");
+    }
     else if (num <= i)
         contact[num].get_fields();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
