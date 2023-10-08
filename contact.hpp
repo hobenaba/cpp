@@ -10,6 +10,9 @@ class Contact {
         std::string nickname;
         std::string phone_number;
         std::string darkest_secret;
-} ;
+    public:
+        std::string *get_info(int b, std::string *info);
+        std::string get_data(int b, int index);
+    } ;
 
 #endif

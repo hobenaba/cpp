@@ -11,6 +11,8 @@ class PhoneBook
     public :
         PhoneBook();
         void set_contact();
+        void get_contact();
+        void enter_index();
 };
 
 #endif

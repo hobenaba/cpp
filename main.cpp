@@ -14,6 +14,8 @@ int main ()
         {
             if (cmd == "ADD")
                 phonebook.set_contact();
+            else if (cmd == "SEARCH")
+                phonebook.get_contact();
         }
     }
 }
