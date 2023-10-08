@@ -32,3 +32,12 @@ std::string Contact::get_data(int b, int index)
         str = std::string (10 - str.length(), ' ') + str;
     return (str = str + std::string(1, '|'));
 }
+
+void    Contact::get_fields()
+{
+    std::cout << "First Name : " << this -> first_name << std::endl;
+    std::cout << "Last Name : " << this -> last_name << std::endl;
+    std::cout << "Nickname : " << this ->nickname << std::endl;
+    std::cout << "Phone Number : " << this -> phone_number << std::endl;
+    std::cout << "Darkest Secret : " << this -> darkest_secret << std::endl;
+}

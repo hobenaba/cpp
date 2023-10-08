@@ -1,6 +1,6 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "iosfwd": "cpp"
+        "ratio": "cpp"
     }
 }

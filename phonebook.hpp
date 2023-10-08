@@ -10,9 +10,9 @@ class PhoneBook
         int index;
     public :
         PhoneBook();
-        void set_contact();
-        void get_contact();
-        void enter_index();
+        void    set_contact();
+        void    get_contact();
+        std::string  enter_index(int i);
 };
 
 #endif

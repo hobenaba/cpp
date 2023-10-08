@@ -25,12 +25,18 @@ void PhoneBook::set_contact()
    }
 }
 
-void PhoneBook::enter_index()
+std::string PhoneBook::enter_index(int i)
 {
-    std::string in;
+    int num;
 
-    std::cout << "enter your contact index :";
-    getline(std::cin, in);
+    std::cout << "enter your contact index : ";
+    std::cin >> num;
+    if (num < 0 || num > 7 || std::cin.fail())
+        return (std::cout << "input invalid, try again" << std::endl, "error");
+    else if (num <= i)
+        contact[num].get_fields();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return ("finish");
 }
 void PhoneBook::get_contact()
 {
@@ -44,8 +50,9 @@ void PhoneBook::get_contact()
     std::cout << "------------- PhoneBook Contact -------------" << std::endl;
     while (++i < 8 && i <= this -> index)
     {
+        
        std::cout << "|" << contact[i].get_data(0, i) << contact[i].get_data(1, i)
         << contact[i].get_data(2, i) << contact[i].get_data(3, i) << std::endl;
     }
-    enter_index();
+    while (enter_index(i - 1) == "error");
 }

@@ -13,6 +13,7 @@ class Contact {
     public:
         std::string *get_info(int b, std::string *info);
         std::string get_data(int b, int index);
+        void        get_fields();
     } ;
 
 #endif
