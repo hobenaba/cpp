@@ -20,7 +20,7 @@ void	Account::displayStatus(void) const
 }
 Account::Account(int initial_deposit)
 {
-    //std::cout << "amount:" << initial_deposit;
+    std::cout << "imhier";
     return;
 }
 Account::~Account(void)
