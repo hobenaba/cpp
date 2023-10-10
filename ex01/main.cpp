@@ -4,6 +4,7 @@ int main ()
 {
     std::string cmd;
     PhoneBook phonebook;
+
     while (cmd != "EXIT")
     {
         std::cout << "cmd : ";
