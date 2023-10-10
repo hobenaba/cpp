@@ -9,6 +9,8 @@ int main ()
     {
         std::cout << "cmd : ";
         std::getline(std::cin, cmd);
+        if (std::cin.eof())
+            exit (0);
         if (cmd.empty())
             std::cout << "invalid input, try again" << std::endl;
         else

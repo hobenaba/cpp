@@ -18,6 +18,8 @@ void PhoneBook::set_contact()
         to = contact[this -> index % 8].get_info(b, &info);
         std::cout << info;
         std::getline(std::cin, *to);
+        if (std::cin.eof())
+            exit (0);
         if (to->empty())
             std::cout << "invalid input, try again" << std::endl;
         else
@@ -31,6 +33,8 @@ std::string PhoneBook::enter_index(int i)
 
     std::cout << "enter your contact index : ";
     std::cin >> num;
+    if (std::cin.eof())
+        exit (0);
     if (num < 0 || num > 7 || std::cin.fail())
     {
         std::cin.clear();
