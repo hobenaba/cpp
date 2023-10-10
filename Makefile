@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = account
 
-SRCS = account.cpp tests.cpp
+SRCS = Account.cpp tests.cpp
 
 OBJECT = $(SRCS:.cpp=.o)
 
