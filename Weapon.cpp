@@ -6,7 +6,13 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:17 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 17:23:18 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:28:08 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
+
+Weapon::Weapon (std::string name)
+{
+    this -> type = name;
+}

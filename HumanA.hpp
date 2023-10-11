@@ -6,7 +6,12 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:23:28 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 17:23:29 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:25:35 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
+
+#include "Weapon.hpp"
+#endif
