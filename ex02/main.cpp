@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 15:56:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 15:56:50 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/11 16:00:56 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/11 16:00:58 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include <iostream>
 
-#include "contact.hpp"
-
-class PhoneBook
+int main ()
 {
-    private:
-        Contact contact[8];
-        int index;
-    public :
-        PhoneBook();
-        void    set_contact();
-        void    get_contact();
-        std::string  enter_index(int i);
-};
+    std::string string= "HI THIS IS BRAIN";
+    std::string *stringPTR = &string;
+    std::string &stringREF = string;
 
-#endif
+    std::cout << &string << " : " << string << std::endl;
+    std::cout << stringPTR << " : " << *stringPTR << std::endl;
+    std::cout << &stringREF << " : "<< stringREF << std::endl;
+}
