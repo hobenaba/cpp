@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:04:37 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 17:24:16 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:28:37 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
     {
         Weapon club = Weapon("crude spiked club");
-        //HumanA bob("Bob", club);
+        HumanA bob("Bob", club);
         // bob.attack();
         // club.setType("some other type of club");
         // bob.attack();
