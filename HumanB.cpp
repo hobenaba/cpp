@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   humanA.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 16:22:23 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 16:35:35 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/11 16:08:59 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/11 16:36:12 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Weapon.hpp"
 
-HumanA::HumanA(std::string name, std::string weapon)
+HumanB::HumanB(std::string name)
 {
     this -> name = name;
-    this -> Weapon = weapon;
 }
