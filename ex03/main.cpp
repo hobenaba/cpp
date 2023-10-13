@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:51:44 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/13 17:53:12 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/13 18:02:33 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
-
     return 0;
 }
