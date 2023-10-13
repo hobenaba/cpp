@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:28 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 17:31:07 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/13 15:56:20 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/13 16:00:27 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #define HUMANA_HPP
 
 #include "Weapon.hpp"
+
 class HumanA {
-    private :
-        Weapon weapon;
+    private:
         std::string name;
-    public :
-        void attack();
+        Weapon weapon;
+    public:
         HumanA(std::string name, Weapon weapon);
+        void attack();
+        
 };
 #endif

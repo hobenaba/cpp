@@ -5,20 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 17:23:33 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 17:27:24 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/13 15:52:55 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/13 16:04:28 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef Weapon_hpp
+#define Weapon_hpp
 
 #include <iostream>
-class Weapon{
-    private :
+
+class Weapon {
+    private:
         std::string type;
-    public  :
+    public:
         Weapon(std::string name);
+        const std::string &getType();
+        void    setType(std::string new_weapon);
 };
 
 #endif

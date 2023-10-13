@@ -6,12 +6,11 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:57:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 15:57:16 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:30:05 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
-#include <iostream>
 #include <ctime>
 #include <iomanip>
 #include <sstream>
