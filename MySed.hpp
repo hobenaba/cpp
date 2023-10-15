@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sed.hpp                                            :+:      :+:    :+:   */
+/*   MySed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 18:11:45 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/13 18:49:03 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/15 14:11:52 by mac               #+#    #+#             */
+/*   Updated: 2023/10/15 23:02:06 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-#define SED_HPP
+#ifndef MYSED_HPP
+#define MYSED_HPP
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <sstream>
 
-class Sed {
-    private:
-        std::string filename;
-        std::string s1;
-        std::string s2;
-    public:
-        Sed(char **av);
-        std::string OpenFile(); 
+class MySed
+{
+	private:
+		std::string filename;
+		std::string s1;
+		std::string s2;	
+	public:
+		MySed(char **av);
+		std::string OpenFile();
+		std::string Replace(std::string str);
+		void		Outfile(std::string str);
 };
 
 #endif

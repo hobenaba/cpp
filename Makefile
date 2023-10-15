@@ -1,10 +1,10 @@
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Sed
+NAME = MySed
 
-SRCS = main.cpp sed.cpp
+SRCS = main.cpp MySed.cpp
 
 OBJECT = $(SRCS:.cpp=.o)
 

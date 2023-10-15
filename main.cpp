@@ -3,24 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 18:11:23 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/13 18:27:15 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/15 14:11:38 by mac               #+#    #+#             */
+/*   Updated: 2023/10/15 23:07:35 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sed.hpp"
+#include "MySed.hpp"
 
-int main (int ac, char **av)
+int main(int ac, char **av)
 {
-    if (ac == 4)
-    {
-        Sed _sed(av);
-        _sed.OpenFile();
-    }
-    else
-        return (std::cout << "Not the right format" << std::endl, 
-            std::cout << "format : <filename> <to_find> <replace_with>"
-                << std::endl, 0);
+	std::string str;
+	
+	if (ac == 4)
+	{
+		MySed mysed(av);
+		str = mysed.OpenFile();
+		str = mysed.Replace(str);
+		mysed.Outfile(str);
+	}
+	else	
+		return (std::cout << "Wrong Format, Try Again" << std::endl,
+			std::cout << "Format : <filename> <to_find> <replace_with>" << std::endl, 0);
 }
