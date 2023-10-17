@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:26:03 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/17 21:57:48 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/17 22:00:39 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,7 @@ Fixed::Fixed(const int num)
 // Fixed(const float num);
 // float toFloat(void) const;
 // int toInt(void) const;
-// Fixed &operator<<(const Fixed &src);
+// Fixed Fixed::&operator<<(const Fixed &src)
+// {
+    
+// }
