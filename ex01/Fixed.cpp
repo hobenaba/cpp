@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:26:03 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/17 21:33:36 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/17 21:57:48 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,8 @@ void Fixed::setRawBits(int const raw)
 
 Fixed::Fixed(const int num)
 {
-    std::cout << num << std::endl;
-    this -> FixedNumber = num << 8;
-    std::cout << this -> FixedNumber << std::endl;
+    std::cout << "int constructor called" << std::endl;
+    this -> FixedNumber = num << FractionalBits;
 }
 // Fixed(const float num);
 // float toFloat(void) const;
