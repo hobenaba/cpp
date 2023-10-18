@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:26:03 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/17 22:00:39 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:15:01 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,21 @@ Fixed::Fixed(const int num)
     std::cout << "int constructor called" << std::endl;
     this -> FixedNumber = num << FractionalBits;
 }
-// Fixed(const float num);
-// float toFloat(void) const;
-// int toInt(void) const;
-// Fixed Fixed::&operator<<(const Fixed &src)
-// {
-    
-// }
+Fixed::Fixed(const float num)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this -> FixedNumber = roundf(num * 256);
+}
+float Fixed::toFloat(void) const
+{
+    return ((float)this -> FixedNumber / 256);   
+}
+int Fixed::toInt(void) const
+{
+    return (this -> FixedNumber >> FractionalBits);
+}
+std::ostream & operator<<(std::ostream &o, const Fixed &src)
+{
+    o << src.toFloat();
+    return (o);
+}
