@@ -5,43 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 18:26:03 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/18 19:15:01 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/20 15:38:55 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/20 16:36:35 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed() : FixedNumber(0)
 {
     std::cout << "Default constructor called" << std::endl;
-    this -> FixedNumber = 0;
 }
 
 Fixed::Fixed(const Fixed &src)
 {
-    std::cout << "Copy constructor called" << std::endl;
-    this -> FixedNumber = src.getRawBits();
+    std::cout << "copy constructor called" << std::endl;
+    *this = src;
 }
 
 Fixed &Fixed::operator=(const Fixed &src)
 {
-    std::cout << "copy assignement operator called" << std::endl;
-    this -> FixedNumber = src.getRawBits();
+    std::cout << "copy assignment operator called" << std::endl;
+    this -> FixedNumber = src.FixedNumber;
     return (*this);
 }
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called" << std::endl;
-}
-int Fixed::getRawBits() const
+
+int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
     return (this -> FixedNumber);
 }
+
 void Fixed::setRawBits(int const raw)
 {
     this -> FixedNumber = raw;
+}
+
+Fixed::~Fixed()
+{ 
+    std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const int num)
@@ -56,11 +58,11 @@ Fixed::Fixed(const float num)
 }
 float Fixed::toFloat(void) const
 {
-    return ((float)this -> FixedNumber / 256);   
+    return ((float)this -> FixedNumber / 256);
 }
 int Fixed::toInt(void) const
 {
-    return (this -> FixedNumber >> FractionalBits);
+    return (this -> FixedNumber >> 8);
 }
 std::ostream & operator<<(std::ostream &o, const Fixed &src)
 {

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 18:05:49 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/18 19:12:54 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/20 15:37:20 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/20 16:34:53 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main( void ) 
+int main( void )
 {
     Fixed a;
     Fixed const b( 10 );
@@ -27,5 +27,5 @@ int main( void )
     std::cout << "b is " << b.toInt() << " as integer" << std::endl;
     std::cout << "c is " << c.toInt() << " as integer" << std::endl;
     std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-    return 0; 
+    return 0;
 }

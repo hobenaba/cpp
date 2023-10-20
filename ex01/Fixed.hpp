@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 18:06:46 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/18 19:12:37 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/20 15:31:43 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/20 16:34:13 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,21 @@
 #include <cmath>
 
 class Fixed {
-    private :
+    private:
         int FixedNumber;
         static const int FractionalBits = 8;
-    public :
+    public:
         Fixed();
         Fixed(const Fixed &src);
+        Fixed & operator=(const Fixed &src);
+        ~Fixed();
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
         Fixed(const int num);
         Fixed(const float num);
         float toFloat(void) const;
         int toInt(void) const;
-        Fixed &operator=(const Fixed &src);
-        ~Fixed();
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
-        friend std::ostream & operator<<(std::ostream & o, const Fixed & src);
-}  ;
+        friend std::ostream & operator<<(std::ostream &o, const Fixed &src); 
+};
+
 #endif

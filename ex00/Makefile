@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Fixed
 
-SRCS = Fixed.cpp main.cpp
+SRCS = main.cpp Fixed.cpp
 
 OBJECT = $(SRCS:.cpp=.o)
 

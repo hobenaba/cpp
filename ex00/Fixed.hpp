@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 18:06:46 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/17 20:45:06 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/20 15:31:43 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/20 15:46:04 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@
 #include <iostream>
 
 class Fixed {
-    private :
+    private:
         int FixedNumber;
         static const int FractionalBits = 8;
-    public :
+    public:
         Fixed();
         Fixed(const Fixed &src);
-        Fixed &operator=(const Fixed &src);
+        Fixed & operator=(const Fixed &src);
         ~Fixed();
-        int getRawBits(void) const; // gets the raw value of number.
-        void setRawBits(int const raw); //sets the value of the number
-}  ;
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
+};
+
 #endif
