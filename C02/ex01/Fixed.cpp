@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:38:55 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/21 16:31:17 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/21 19:13:32 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ Fixed::Fixed(const int num)
 Fixed::Fixed(const float num)
 {
     std::cout << "Float constructor called" << std::endl;
-    this -> FixedNumber = roundf(num * pow(2, FractionalBits));
+    this -> FixedNumber = roundf(num * 256);
 }
 float Fixed::toFloat(void) const
 {
-    return ((float)this -> FixedNumber / pow(2, FractionalBits));
+    return ((float)this -> FixedNumber / 256);
 }
 int Fixed::toInt(void) const
 {

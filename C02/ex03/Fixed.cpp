@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:38:55 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/21 16:35:39 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/21 19:14:55 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,24 +78,24 @@ Fixed &Fixed::operator--()
 }
 Fixed   Fixed::operator*(const Fixed &src)
 {
-       return Fixed(((float)this -> FixedNumber / (int)pow(2, FractionalBits)) * src.toFloat());
+       return Fixed((float)this -> FixedNumber / 256 * src.toFloat());
 
 }
 
 Fixed   Fixed::operator+(const Fixed &src)
 {
-    return Fixed(((float)this -> FixedNumber / (int)pow(2, FractionalBits))+ src.toFloat());
+    return Fixed((float)this -> FixedNumber / 256 + src.toFloat());
 }
 
 Fixed   Fixed::operator-(const Fixed &src)
 {
-       return Fixed(((float)this -> FixedNumber / (int)pow(2, FractionalBits)) - src.toFloat());
+       return Fixed((float)this -> FixedNumber / 256 - src.toFloat());
 
 }
 
 Fixed   Fixed::operator/(const Fixed &src)
 {
-        return Fixed(((float)this -> FixedNumber / (int)pow(2, FractionalBits)) / src.toFloat());
+        return Fixed((float)this -> FixedNumber / (256 / src.toFloat()));
 
 }
 bool   Fixed::operator>(const Fixed &src) const
@@ -135,7 +135,7 @@ void Fixed::setRawBits(int const raw)
 }
 float Fixed::toFloat(void) const
 {
-    return ((float)this -> FixedNumber / pow(2, FractionalBits));
+    return ((float)this -> FixedNumber / 256);
 }
 int Fixed::toInt(void) const
 {
