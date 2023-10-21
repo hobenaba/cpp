@@ -49,7 +49,7 @@ If P lies inside the triangle, then A1 + A2 + A3 must be equal to A.
 */
 
 int main ( void ) {
-    if ( bsp( Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15) ) == true ) {
+    if ( bsp( Point(-1, 455), Point(10, 30), Point(20, 0), Point(20, 0) ) == true ) {
         std::cout << "Point is in the triangle" << std::endl;
     } else {
         std::cout << "Point is not in the triangle" << std::endl;

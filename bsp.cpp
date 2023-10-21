@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 15:59:35 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/21 17:08:03 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:12:46 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     Fixed alpha1 = (areaABP / areaABC);
     Fixed alpha2 = (areaACP / areaABC);
     Fixed alpha3 = (areaBCP / areaABC);
-    if ((alpha1 > 0 && alpha1 < 1) && (alpha2 > 0 && alpha2 < 1) && (alpha3 > 0 && alpha3 < 1))
+    std::cout << alpha1 << " " << alpha2 << " " << alpha3 << std::endl;
+    if ((alpha1 >= 0 && alpha1 <= 1) && (alpha2 >= 0 && alpha2 <= 1) && (alpha3 >= 0 && alpha3 <= 1))
         return (true);
     return (false);
 }
