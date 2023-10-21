@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:31:43 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/20 17:58:45 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/20 18:12:59 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ class Fixed {
         float toFloat(void) const;
         int toInt(void) const;
         friend std::ostream & operator<<(std::ostream &o, const Fixed &src);
-        static int &min(int &n1, int &n2);
-        static int &min(const int &n1, const int &n2);
-        static int &max(int &n1, int &n2);
-        static int &max(const int &n1, const int &n2);
+        static Fixed &min(Fixed &n1, Fixed &n2);
+        static Fixed &min(const Fixed &n1, const Fixed &n2);
+        static Fixed &max(Fixed &n1, Fixed &n2);
+        static Fixed &max(const Fixed &n1, const Fixed &n2);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:38:55 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/20 17:57:51 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/20 18:21:47 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,31 +90,32 @@ int Fixed::toInt(void) const
 {
     return (this -> FixedNumber >> 8);
 }
-int &Fixed::min(int &n1, int &n2)
+Fixed &Fixed::min(Fixed &n1, Fixed &n2)
 {
-    if (n1 <= n2);
+    if (n1 <= n2)
         return (n1);
     else
         return (n2);
 }
+// got to solve the problemm hier
 
-int &Fixed::min(const int &n1, const int &n2)
+// Fixed &Fixed::min(const Fixed &n1, const Fixed &n2)
+// {
+//     if (n1 <= n2);
+//         return (n1);
+//     else
+//         return (n2);
+// }
+Fixed &Fixed::max(Fixed &n1, Fixed &n2)
 {
-    if (n1 <= n2);
-        return (n1);
-    else
+    if (n1 <= n2)
         return (n2);
-}
-int &Fixed::max(int &n1, int &n2)
-{
-    if (n1 <= n2);
-        return (n2);
     else
         return (n1);
 }
-int &Fixed::max(const int &n1, const int &n2)
+Fixed &Fixed::max(const Fixed &n1, const Fixed &n2)
 {
-    if (n1 <= n2);
+    if (n1 <= n2)
         return (n2);
     else
         return (n1);
