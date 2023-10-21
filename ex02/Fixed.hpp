@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:31:43 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/20 18:12:59 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/21 14:32:54 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ class Fixed {
         Fixed  operator++(int);
         Fixed & operator--();
         Fixed  operator--(int);
-        friend Fixed   operator*(const Fixed &src1, const Fixed &src2);
-        friend Fixed   operator+(const Fixed &src1, const Fixed &src2);
-        friend Fixed   operator-(const Fixed &src1, const Fixed &src2);
-        friend Fixed   operator/(const Fixed &src1, const Fixed &src2);
-        friend bool   operator>(const Fixed &src1, const Fixed &src2);
-        friend bool   operator>=(const Fixed &src1, const Fixed &src2);
-        friend bool   operator<(const Fixed &src1, const Fixed &src2);
-        friend bool   operator<=(const Fixed &src1, const Fixed &src2);
-        friend bool   operator==(const Fixed &src1, const Fixed &src2);
-        friend bool   operator!=(const Fixed &src1, const Fixed &src2);
+        Fixed   operator*(const Fixed &src);
+        Fixed   operator+(const Fixed &src);
+        Fixed   operator-(const Fixed &src);
+        Fixed   operator/(const Fixed &src);
+        bool   operator>(const Fixed &src) const;
+        bool   operator>=(const Fixed &src) const;
+        bool   operator<(const Fixed &src) const;
+        bool   operator<=(const Fixed &src) const;
+        bool   operator==(const Fixed &src) const;
+        bool   operator!=(const Fixed &src) const;
         ~Fixed();
         int getRawBits(void) const;
         void setRawBits(int const raw);
@@ -45,11 +45,12 @@ class Fixed {
         Fixed(const float num);
         float toFloat(void) const;
         int toInt(void) const;
-        friend std::ostream & operator<<(std::ostream &o, const Fixed &src);
         static Fixed &min(Fixed &n1, Fixed &n2);
         static Fixed &min(const Fixed &n1, const Fixed &n2);
         static Fixed &max(Fixed &n1, Fixed &n2);
         static Fixed &max(const Fixed &n1, const Fixed &n2);
 };
+
+std::ostream & operator<<(std::ostream &o, const Fixed &src);
 
 #endif

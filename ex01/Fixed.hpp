@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:31:43 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/20 16:34:13 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/21 14:20:45 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ class Fixed {
         Fixed(const float num);
         float toFloat(void) const;
         int toInt(void) const;
-        friend std::ostream & operator<<(std::ostream &o, const Fixed &src); 
 };
+
+std::ostream & operator<<(std::ostream &o, const Fixed &src); 
 
 #endif
