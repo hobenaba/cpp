@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 19:02:16 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/24 15:16:06 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/10/23 15:14:41 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/10/24 15:08:51 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "FragTrap.hpp"
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : virtual public ClapTrap
+int main( void )
 {
-    public :
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap &src);
-        ScavTrap &operator=(const ScavTrap &src);
-        ~ScavTrap();
-        void attack(const std::string &target);
-        void guardGate();
-} ;
+    FragTrap ash( "Ash" );
+    FragTrap ash2( ash );
 
-#endif
+    ash.attack( "the air" );
+    ash.takeDamage( 10 );
+    ash.beRepaired( 10 );
+    ash.highFivesGuys();
+
+    return EXIT_SUCCESS;
+}
