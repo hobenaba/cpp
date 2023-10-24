@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:57:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/13 12:30:05 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:43:51 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ bool	Account::makeWithdrawal(int withdrawal)
         _totalNbWithdrawals += _nbWithdrawals;
         _totalAmount -= withdrawal;
         std::cout << "index:" << _accountIndex << ";p_amount:" << p_amount
-            << ";withdrawls:" << withdrawal << ";amount:" << _amount <<
+            << ";withdrawal:" << withdrawal << ";amount:" << _amount <<
                 ";nb_withdrawals:" << _nbWithdrawals << std::endl;
     }
     return 0;

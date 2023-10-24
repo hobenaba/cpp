@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:53:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 15:53:13 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:27:29 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONTACT_HPP
 
 #include <iostream>
+#include <cctype>
 
 class Contact {
     private :

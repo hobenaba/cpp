@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:56:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 15:56:50 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:29:22 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class PhoneBook
         void    set_contact();
         void    get_contact();
         std::string  enter_index(int i);
+        int checkNumber(std::string str);
 };
 
 #endif

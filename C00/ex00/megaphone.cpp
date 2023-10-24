@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:52:52 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 15:52:54 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:52:30 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int main (int ac , char **av)
             while (av[i][++j])
                 std::cout << (char)toupper(av[i][j]);
         }
-        std::cout << "\n";
+        std::cout << std::endl;
     }
 }
