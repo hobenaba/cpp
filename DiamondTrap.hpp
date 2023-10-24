@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:16:09 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/24 15:17:28 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:19:23 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 class DiamondTrap {
     private :
-        std::string name;
+        std::string _name;
     public :
         
 }   ;
