@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:56:20 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/13 16:36:17 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:24:32 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ class HumanA {
     public:
         HumanA(std::string name, Weapon &weapon);
         void attack();
-        
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:00:25 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 16:00:28 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:33:11 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Zombie {
     public:
         Zombie();
         ~Zombie();
-        void set_name(std::string name);
+        void setName(std::string name);
         void announce(void);
 };
 Zombie*    zombieHorde(int N, std::string name);

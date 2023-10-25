@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:26:25 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/17 15:15:43 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:05:29 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,12 @@ void Harl::error( void )
 
 void Harl::complain(std::string level)
 {
-    typedef void (Harl::*FuncPtr) (void);
-    FuncPtr FuncPtrArr [] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    void (Harl::*FuncPtr[]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string str[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int i = -1;
-    Harl obj;
     while (++i < 4)
     {
         if (level == str[i])
-            (obj.*FuncPtrArr[i])();
+            (this->*FuncPtr[i])();
     }
 }

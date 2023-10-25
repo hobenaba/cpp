@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:00:19 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 16:00:21 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:33:21 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Zombie::Zombie()
 {
     return ;
 }
-void Zombie::set_name(std::string name)
+void Zombie::setName(std::string name)
 {
     this -> name = name;
 }

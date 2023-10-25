@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:00:31 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/11 16:00:33 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:34:31 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ Zombie*    zombieHorde(int N, std::string name)
 
     Zombie *zombies = new Zombie[N];
     while (++i < N)
-        zombies[i].set_name(name);
-    return(zombies);
+        zombies[i].setName(name);
+    return (zombies);
 };

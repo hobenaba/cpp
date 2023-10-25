@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MySed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 14:19:02 by mac               #+#    #+#             */
-/*   Updated: 2023/10/15 23:24:57 by mac              ###   ########.fr       */
+/*   Updated: 2023/10/25 17:26:41 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ std::string MySed::OpenFile()
 	
 	if (file.is_open())
 	{
-		while(file.get(c))
-			str << c;
+		str << file.rdbuf();
 		file.close();
 	}
 	else
 		return (std::cout << "problem occurs while opening the file" << std::endl, exit(EXIT_FAILURE), "");
+	if (str.str().length() == 0)
+		return (std::cout << "file is empty" << std::endl, exit(EXIT_FAILURE), "");
 	return (str.str());
 }
 
@@ -43,7 +44,7 @@ std::string MySed::Replace(std::string str)
 	i = 0;
 	while (str[i])
 	{
-		i = str.find(this -> s1);
+		i = str.find(this -> s1, i);
 		if (i == std::string::npos || this -> s1.length() == 0)
 			break;
 		if (i != std::string::npos)
@@ -58,12 +59,12 @@ std::string MySed::Replace(std::string str)
 
 void MySed::Outfile(std::string str)
 {
-	std::ofstream output;
+	std::ofstream outfile;
 	
-	output.open(this -> filename + ".replace");
-	//std::cout << "imhier\n";
-	if (output.is_open())
-		output << str;
+	outfile.open(this -> filename + ".replace");
+	
+	if(outfile.is_open())
+		outfile << str;
 	else
 		std::cout << "problem occurs while opening the file" << std::endl;
 }
