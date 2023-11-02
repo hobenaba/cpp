@@ -6,11 +6,13 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:38:55 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/21 19:14:49 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:37:00 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::FractionalBits = 8;
 
 Fixed::Fixed() : FixedNumber(0)
 {
@@ -78,25 +80,30 @@ Fixed &Fixed::operator--()
 }
 Fixed   Fixed::operator*(const Fixed &src)
 {
-       return Fixed((float)this -> FixedNumber / 256  * src.toFloat());
-
+    Fixed a;
+    a.setRawBits((this -> FixedNumber * src.FixedNumber) / 256);
+    return a;
 }
 
 Fixed   Fixed::operator+(const Fixed &src)
 {
-    return Fixed((float)this -> FixedNumber / 256 + src.toFloat());
+    Fixed a;
+    a.setRawBits(this -> FixedNumber + src.FixedNumber);
+    return a;
 }
 
 Fixed   Fixed::operator-(const Fixed &src)
 {
-       return Fixed((float)this -> FixedNumber / 256  - src.toFloat());
-
+    Fixed a;
+    a.setRawBits(this -> FixedNumber - src.FixedNumber);
+    return a;
 }
 
 Fixed   Fixed::operator/(const Fixed &src)
 {
-        return Fixed((float)this -> FixedNumber / 256  / src.toFloat());
-
+    Fixed a;
+    a.setRawBits(roundf((((float)this -> FixedNumber / src.FixedNumber ) * 256)));
+    return a;
 }
 bool   Fixed::operator>(const Fixed &src) const
 {
@@ -149,15 +156,12 @@ Fixed &Fixed::min(Fixed &n1, Fixed &n2)
         return (n2);
 }
 
-Fixed &Fixed::min(const Fixed &n1, const Fixed &n2)
+Fixed const &Fixed::min(const Fixed &n1, const Fixed &n2)
 {
-    static Fixed a;
-    
     if (n1 <= n2)
-        a = n1;
+        return (n1);
     else
-        a = n2;
-    return (a);
+        return (n2);
 }
 Fixed &Fixed::max(Fixed &n1, Fixed &n2)
 {
@@ -166,13 +170,10 @@ Fixed &Fixed::max(Fixed &n1, Fixed &n2)
     else
         return (n1);
 }
-Fixed &Fixed::max(const Fixed &n1, const Fixed &n2)
+Fixed const &Fixed::max(const Fixed &n1, const Fixed &n2)
 {
-    static Fixed a;
-    
-    if (n1 <= n2)
-       a = n2;
+      if (n1 <= n2)
+        return (n2);
     else
-       a = n1;
-    return (a);
+        return (n1);
 }

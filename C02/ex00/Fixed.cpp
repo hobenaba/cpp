@@ -6,11 +6,13 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:38:55 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/20 15:57:31 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/02 17:25:42 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::FractionalBits = 8;
 
 Fixed::Fixed() : FixedNumber(0)
 {

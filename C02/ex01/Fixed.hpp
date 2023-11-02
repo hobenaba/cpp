@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:31:43 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/21 14:20:45 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/02 17:59:09 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed {
     private:
         int FixedNumber;
-        static const int FractionalBits = 8;
+        static const int FractionalBits;
     public:
         Fixed();
         Fixed(const Fixed &src);
