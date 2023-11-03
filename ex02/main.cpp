@@ -20,7 +20,7 @@ int main( void )
     ash.attack( "the air" );
     ash.takeDamage( 10 );
     ash.beRepaired( 10 );
-    ash.highFive();
+    ash.highFivesGuys();
 
     return 0;
 }
