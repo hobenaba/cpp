@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 19:02:16 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/24 14:43:08 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/03 15:42:11 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/03 15:51:15 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+int main( void )
 {
-    public :
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap &src);
-        ScavTrap &operator=(const ScavTrap &src);
-        ~ScavTrap();
-        void attack(const std::string &target);
-        void guardGate();
-} ;
+    ClapTrap clap("Ash");
 
-#endif
+    clap.attack("Staff");
+    return 0;
+}

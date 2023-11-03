@@ -1,6 +1,6 @@
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Zombie
 
@@ -11,7 +11,7 @@ OBJECT = $(SRCS:.cpp=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJECT)
-	@$(CC) $(CFLAGS) $(OBJECT) -o $(NAME)
+	@$(CC) $(CPPFLAGS) $(OBJECT) -o $(NAME)
 	@echo "\033[0;35mcompiled !!!!\033[0m"
 
 clean : 

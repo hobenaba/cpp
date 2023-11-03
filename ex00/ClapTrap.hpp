@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:02:36 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/10/23 15:17:03 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/03 15:47:37 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/03 15:53:01 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ class ClapTrap {
         int _hitPoints;
         int _energyPoints;
         int _attackDamage;
-    public :
+    public:
         ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap &src);
-        ClapTrap &operator=(const ClapTrap &src);
+        ClapTrap operator=(const ClapTrap &src);
         ~ClapTrap();
-        void attack(const std::string &target);
+        void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-} ;
+};
 
 #endif
