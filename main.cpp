@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main( void )
 {
-    ScavTrap ash( "Ash" );
-    ScavTrap ash2( ash );
+    FragTrap ash( "Ash" );
+    FragTrap ash2( ash );
 
     ash.attack( "the air" );
     ash.takeDamage( 10 );
     ash.beRepaired( 10 );
-    ash.guardGate();
+    ash.highFive();
 
-    return EXIT_SUCCESS;
+    return 0;
 }
