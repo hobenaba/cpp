@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 15:42:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/03 16:22:10 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/04 17:31:01 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/04 17:31:03 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-int main( void )
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-    FragTrap ash( "Ash" );
-    FragTrap ash2( ash );
+    public:
+    FragTrap();
+    FragTrap(std::string name);
+    FragTrap(const FragTrap &src);
+    FragTrap operator=(const FragTrap &src);
+    ~FragTrap();
+    void highFivesGuys(void);
+};
 
-    ash.attack( "the air" );
-    ash.takeDamage( 10 );
-    ash.beRepaired( 10 );
-    ash.highFivesGuys();
-
-    return 0;
-}
+#endif

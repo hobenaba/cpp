@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 14:19:02 by mac               #+#    #+#             */
-/*   Updated: 2023/10/29 17:35:31 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/03 19:01:57 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ std::string MySed::OpenFile()
 {
 	std::stringstream str;
 	std::ifstream file(this -> filename);
-	char c;
 	
 	if (file.is_open())
 	{

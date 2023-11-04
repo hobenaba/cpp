@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:23:30 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/03 16:23:39 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/03 15:42:11 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/04 18:37:07 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-#include "ClapTrap.hpp"
+int main( void )
+{
+    DiamondTrap ash( "Ash" );
 
-class ScavTrap : public ClapTrap {
-    public :
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap &src);
-        ScavTrap operator=(const ScavTrap &src);
-        ~ScavTrap();
-        void attack(const std::string& target);
-        void guardGate();
-} ;
+    ash.whoAmI();
+    ash.attack( "the air" );
+    ash.takeDamage( 10 );
+    ash.beRepaired( 10 );
 
-#endif
+    return 0;
+}
