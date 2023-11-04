@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 17:41:42 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/04 18:24:12 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/04 19:07:34 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap()
 {
+    _name = "default";
+    ClapTrap::_name = _name + "_clap_name";
     _hitPoints = 100;
     _attackDamage = 30; // handle it in a more inheritence way.
+    // vptr, vtable, virtual how it works
     std::cout << "<DiamondTrap> default constructor is called" << std::endl;
 }
 
@@ -36,7 +39,6 @@ DiamondTrap DiamondTrap::operator=(const DiamondTrap &src)
     ClapTrap::operator=(src);
     return *this;
 }
-
 DiamondTrap::~DiamondTrap()
 {
     std::cout << "<DiamondTrap> destructor is called" << std::endl;
