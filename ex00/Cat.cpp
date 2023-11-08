@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:22:12 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 11:24:58 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:29:12 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ Cat::Cat()
     std::cout << "Cat constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &src) : Animal(src)
+Cat::Cat(const Cat &src)
 {
+    this -> type = src.type;
     std::cout << "Cat copy constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:16:58 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 11:24:23 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:29:21 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ Dog::Dog()
     std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &src) : Animal(src)
+Dog::Dog(const Dog &src)
 {
+    this -> type = src.type;
     std::cout << "Dog copy constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:04:57 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 11:49:48 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:28:11 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ Animal::Animal() : type("Animal")
     std::cout << "Animal constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &src) : type(src.type)
+Animal::Animal(const Animal &src)
 {
+    this -> type = src.type;
     std::cout << "Animal copy constructor called" << std::endl;
 }
 
