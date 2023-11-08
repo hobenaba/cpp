@@ -2,7 +2,7 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Animals
+NAME = smartAnimals
 
 SRCS = main.cpp  Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 

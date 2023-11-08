@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:41:34 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 13:12:50 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:15:16 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,12 @@
 
 int main( void )
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    std::cout << "J Type: " << j->getType() << " " << std::endl;
-    std::cout << "I Type: " << i->getType() << " " << std::endl;
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-
-    delete  meta;
-    delete  j;
-    delete  i;
+    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+    int i = -1;
     
-    // const WrongAnimal *wrong = new WrongAnimal();
-    // const WrongAnimal *wrongCat = new WrongCat();
-
-    // std::cout << "Wrong Type: " << wrong->getType() << " " << std::endl;
-    // std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;
-    // wrong->makeSound();
-    // wrongCat->makeSound();
-
-    // delete  wrong;
-    // delete  wrongCat;
-    // return 0;
+    animals[0]->makeSound();
+    animals[3]->makeSound();
+    
+    while (++i < 4)
+        delete animals[i];
 }
