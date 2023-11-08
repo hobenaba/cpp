@@ -14,11 +14,11 @@
  
 WrongCat::WrongCat()
 {
-    Animal::type = "WrongCat";
+    WrongAnimal::type = "WrongCat";
     std::cout << "WrongCat constructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &src) : Animal(src)
+WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)
 {
     std::cout << "WrongCat copy constructor called" << std::endl;
 }

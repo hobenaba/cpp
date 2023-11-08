@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:34:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 11:36:10 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/08 11:52:22 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class WrongAnimal {
         WrongAnimal operator=(const WrongAnimal &src);
         ~WrongAnimal();
         void makeSound() const;
-        virtual std::string getType() const;
+        std::string getType() const;
 };
 
 #endif
