@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 10:41:34 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 13:15:16 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/08 15:13:43 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,30 @@ int main( void )
     while (++i < 4)
         delete animals[i];
 }
+
+// Animal Dog constructor called
+// Dog constructor called
+// Brain created.
+// Animal Dog constructor called
+// Dog constructor called
+// Brain created.
+// Animal Cat constructor called
+// Cat constructor called
+// Brain created.
+// Animal Cat constructor called
+// Cat constructor called
+// Brain created.
+// Woof!
+// Meow!
+// Brain destroyed.
+// Dog destructor called
+// Animal destructor called
+// Brain destroyed.
+// Dog destructor called
+// Animal destructor called
+// Cat destructor called
+// Brain destroyed.
+// Animal destructor called
+// Cat destructor called
+// Brain destroyed.
+// Animal destructor called
