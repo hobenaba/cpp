@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 11:39:26 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 19:09:18 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 12:33:59 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 12:35:10 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONG_HPP
 
-int main()
-{
-    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
-    int i = -1;
-    while (++i < 4)
-        animals[i] -> makeSound();
-    i = -1;
-    while (++i < 4)
-        delete animals[i];
-}
-//check leaks
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal {
+    public :
+        WrongCat();
+        WrongCat(const WrongCat &src);
+        WrongCat operator=(const WrongCat &src);
+        ~WrongCat();
+        void makeSound() const;
+} ;
+#endif

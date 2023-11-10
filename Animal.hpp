@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 11:39:26 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 19:09:18 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 11:42:36 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 19:07:15 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP  
 
-int main()
-{
-    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
-    int i = -1;
-    while (++i < 4)
-        animals[i] -> makeSound();
-    i = -1;
-    while (++i < 4)
-        delete animals[i];
-}
-//check leaks
+#include <iostream>
+
+class Animal {
+    protected :
+        std::string type;
+    public:
+        Animal();
+        Animal(std::string type);
+        Animal(const Animal &src);
+        Animal operator=(const Animal &src);
+        virtual ~Animal();
+        virtual void makeSound() const = 0;
+        std::string getType() const;
+};
+
+#endif

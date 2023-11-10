@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 11:39:26 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 19:09:18 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 17:05:43 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 17:18:39 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 
-int main()
+Brain::Brain()
 {
-    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
-    int i = -1;
-    while (++i < 4)
-        animals[i] -> makeSound();
-    i = -1;
-    while (++i < 4)
-        delete animals[i];
+    std::cout << "Brain created" << std::endl;
 }
-//check leaks
+Brain::Brain(const Brain &src)
+{
+   int i = -1;
+    
+   std::cout << "Brain created" << std::endl;
+   while (++i < 100)
+    this -> ideas[i] = src.ideas[i];
+}
+Brain Brain::operator=(const Brain &src)
+{
+    return Brain(src);
+}
+Brain::~Brain()
+{
+    std::cout << "Brain destroyed" << std::endl;
+}
