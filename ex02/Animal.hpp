@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:42:36 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 19:07:15 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:14:07 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal {
         Animal();
         Animal(std::string type);
         Animal(const Animal &src);
-        Animal operator=(const Animal &src);
+        Animal &operator=(const Animal &src);
         virtual ~Animal();
         virtual void makeSound() const = 0;
         std::string getType() const;
