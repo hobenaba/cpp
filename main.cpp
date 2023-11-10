@@ -5,50 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 10:41:34 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 15:13:43 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 11:39:26 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 12:13:29 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
 
-int main( void )
+int main()
 {
-    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
-    int i = -1;
-    
-    animals[0]->makeSound();
-    animals[3]->makeSound();
-    
-    while (++i < 4)
-        delete animals[i];
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    // std::cout << j->getType() << " " << std::endl;
+    // std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
 }
 
+// Animel constructor called
 // Animal Dog constructor called
 // Dog constructor called
-// Brain created.
-// Animal Dog constructor called
-// Dog constructor called
-// Brain created.
 // Animal Cat constructor called
 // Cat constructor called
-// Brain created.
-// Animal Cat constructor called
-// Cat constructor called
-// Brain created.
-// Woof!
+// Dog 
+// Cat 
 // Meow!
-// Brain destroyed.
-// Dog destructor called
-// Animal destructor called
-// Brain destroyed.
-// Dog destructor called
-// Animal destructor called
-// Cat destructor called
-// Brain destroyed.
-// Animal destructor called
-// Cat destructor called
-// Brain destroyed.
-// Animal destructor called
+// Woof!
+// Animal makeSound called
