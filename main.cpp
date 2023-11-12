@@ -5,50 +5,51 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 10:41:34 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 15:13:43 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/12 14:49:26 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/12 16:45:58 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-
-int main( void )
+int main()
 {
-    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
-    int i = -1;
-    
-    animals[0]->makeSound();
-    animals[3]->makeSound();
-    
-    while (++i < 4)
-        delete animals[i];
-}
+    // IMateriaSource* src = new MateriaSource();
+    // src->learnMateria(new Ice());
+    // src->learnMateria(new Cure());
 
-// Animal Dog constructor called
-// Dog constructor called
-// Brain created.
-// Animal Dog constructor called
-// Dog constructor called
-// Brain created.
-// Animal Cat constructor called
-// Cat constructor called
-// Brain created.
-// Animal Cat constructor called
-// Cat constructor called
-// Brain created.
-// Woof!
-// Meow!
-// Brain destroyed.
-// Dog destructor called
-// Animal destructor called
-// Brain destroyed.
-// Dog destructor called
-// Animal destructor called
-// Cat destructor called
-// Brain destroyed.
-// Animal destructor called
-// Cat destructor called
-// Brain destroyed.
-// Animal destructor called
+    // ICharacter* me = new Character("me");
+
+    //AMateria* tmp;
+    // tmp = src->createMateria("ice");
+    // me->equip(tmp);
+    // tmp = src->createMateria("cure");
+    // me->equip(tmp);
+
+    // ICharacter* bob = new Character("bob");
+
+    // me->use(0, *bob);
+    // me->use(1, *bob);
+
+    // delete bob;
+    // delete me;
+    // delete src;
+
+    return 0;
+}
+// AMateria ice created
+// AMateria cure created
+// Character me created
+// AMateria ice created
+// Character me equipped with ice
+// AMateria cure created
+// Character me equipped with cure
+// Character bob created
+// I shoots an ice bolt at bob
+// Character me uses ice
+// * heals bob's wounds *
+// Character me uses cure
+// Character bob destroyed
+// Character me destroyed
+// AMateria ice destroyed
+// AMateria cure destroyed
+// AMateria ice destroyed
+// AMateria cure destroyed

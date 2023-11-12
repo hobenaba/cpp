@@ -5,23 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:35:42 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 11:35:43 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 12:33:05 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 12:33:08 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
- 
+
 WrongAnimal::WrongAnimal() : type("WrongAnimal")
 {
-    std::cout << "WrongAnimal constructor called" << std::endl;
+    std::cout << "default constructor for WrongAnimal was called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src) : type(src.type)
+WrongAnimal::WrongAnimal(std::string type) : type(type)
 {
-    std::cout << "WrongAnimal copy constructor called" << std::endl;
+    std::cout << "constructor for WrongAnimal was called" << std::endl;
 }
-
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
+{
+    this -> type = src.type;
+    std::cout << "copy constructor for WrongAnimal was called" << std::endl;
+}
 WrongAnimal WrongAnimal::operator=(const WrongAnimal &src)
 {
     this -> type = src.type;
@@ -29,11 +33,11 @@ WrongAnimal WrongAnimal::operator=(const WrongAnimal &src)
 }
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "WrongAnimal destructor called" << std::endl;
+    std::cout << "destructor for WrongAnimal was called" << std::endl;
 }
 void WrongAnimal::makeSound() const
 {
-    std::cout << "WrongAnimal makeSound() function called" << std::endl;
+    std::cout << "WrongAnimal makeSound() was called" << std::endl;
 }
 
 std::string WrongAnimal::getType() const

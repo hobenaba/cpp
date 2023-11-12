@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:34:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 11:52:22 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 11:39:26 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 19:09:18 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
-
-#include <iostream>
-
-class WrongAnimal {
-    protected:
-        std::string type;
-    public:
-        WrongAnimal();
-        WrongAnimal(const WrongAnimal &src);
-        WrongAnimal operator=(const WrongAnimal &src);
-        ~WrongAnimal();
-        void makeSound() const;
-        std::string getType() const;
-};
-
-#endif
+int main()
+{
+    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+    int i = -1;
+    while (++i < 4)
+        animals[i] -> makeSound();
+    i = -1;
+    while (++i < 4)
+        delete animals[i];
+}
+//check leaks

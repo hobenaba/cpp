@@ -4,9 +4,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Animals
 
-SRCS = main.cpp  Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp
 
-HEADERS = Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp
+HEADERS = Animal.hpp Dog.hpp WrongAnimal.hpp Cat.hpp WrongCat.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 

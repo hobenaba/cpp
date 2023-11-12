@@ -5,40 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:22:12 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 15:28:32 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 12:12:34 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 17:40:13 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
- 
-Cat::Cat()
-{
-    Animal::type = "Cat";
-    std::cout << "Cat constructor called" << std::endl;
-}
 
-Cat::Cat(const Cat &src)
+Cat::Cat() : Animal("Cat")
 {
-    this -> type = src.type;
-    std::cout << "Cat copy constructor called" << std::endl;
+    std::cout << "default constructor for " << type << " was called" << std::endl;
+    this -> brain = new Brain(); 
 }
-
+Cat::Cat(const Cat &src) : Animal(src.type)
+{
+    std::cout << "copy constructor for " << type << " was called" << std::endl;
+    *this = src;
+}
 Cat Cat::operator=(const Cat &src)
 {
     this -> type = src.type;
+    this -> brain = new Brain(*this -> brain);
     return *this;
 }
 Cat::~Cat()
 {
-    std::cout << "Cat destructor called" << std::endl;
+    std::cout << "destructor for " << type << " was called" << std::endl;
+    delete this -> brain;
 }
 void Cat::makeSound() const
 {
-    std::cout << "Meow!" << std::endl;
-}
-
-std::string Cat::getType() const
-{
-    return (this -> type);
+    std::cout << "MEOW!!!" << std::endl;
 }

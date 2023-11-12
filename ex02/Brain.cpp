@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 15:15:02 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 15:24:56 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 17:05:43 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/12 14:50:20 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#include "Brain.hpp"
 
-#include <iostream>
-
-class Brain {
-    private :
-        std::string ideas[100];
-    public :
-        Brain();
-        ~Brain();
-        Brain (const Brain &src);
-        Brain operator=(const Brain &src);
+Brain::Brain()
+{
+    std::cout << "Brain created" << std::endl;
 }
-#endif
+Brain::Brain(const Brain &src)
+{
+   int i = -1;
+    
+   std::cout << "Brain created" << std::endl;
+   while (++i < 100)
+    this -> ideas[i] = src.ideas[i];
+}
+Brain Brain::operator=(const Brain &src)
+{
+    return Brain(src);
+}
+Brain::~Brain()
+{
+    std::cout << "Brain destroyed" << std::endl;
+}

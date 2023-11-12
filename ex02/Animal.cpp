@@ -5,36 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 11:04:57 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/08 15:28:11 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/10 11:50:40 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/10 19:18:43 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
- 
-Animal::Animal() : type("Animal")
+
+Animal::Animal() : type("animal")
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << "default constructor for animal was called" << std::endl;
 }
 
+Animal::Animal(std::string type) : type(type)
+{
+    std::cout << "constructor for animal was called" << std::endl;
+}
 Animal::Animal(const Animal &src)
 {
     this -> type = src.type;
-    std::cout << "Animal copy constructor called" << std::endl;
+    std::cout << "copy constructor for animal was called" << std::endl;
 }
-
-Animal Animal::operator=(const Animal &src)
+Animal &Animal::operator=(const Animal &src)
 {
     this -> type = src.type;
     return *this;
 }
+// how did this work, abstract classes, arent supposed to get initialized
 Animal::~Animal()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << "destructor for animal was called" << std::endl;
 }
 void Animal::makeSound() const
 {
-    std::cout << "Animal makeSound() function called" << std::endl;
+    std::cout << "animal makeSound() was called" << std::endl;
 }
 
 std::string Animal::getType() const

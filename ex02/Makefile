@@ -2,11 +2,11 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = materia
+NAME = protectAnimals
 
-SRCS = main.cpp #AMateria.cpp # MateriaSource.cpp Ice.cpp Cure.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp Brain.cpp
 
-HEADERS = #AMateria.hpp #IMateriaSource.hpp MateriaSource.cpp  ICharacter.hpp Ice.hpp Cure.hpp
+HEADERS = Animal.hpp Dog.hpp WrongAnimal.hpp Cat.hpp WrongCat.hpp Brain.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 
