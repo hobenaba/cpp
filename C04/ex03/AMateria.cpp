@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:41:28 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:00:41 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:17:28 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ AMateria &AMateria::operator=(const AMateria &src)
 
 AMateria::~AMateria()
 {
-    std::cout << "AMateria " << this -> _type << "destroyed" << std::endl;
+    std::cout << "AMateria " << this -> _type << " destroyed" << std::endl;
 }
 
 void AMateria::use(ICharacter& target)

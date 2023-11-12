@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:36:32 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:15:59 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:20:08 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main()
     src->learnMateria(new Cure());
 
     ICharacter* me = new Character("me");
+
     AMateria* tmp;
     tmp = src->createMateria("ice");
     me->equip(tmp);
@@ -29,6 +30,8 @@ int main()
     me->equip(tmp);
     me->unequip(0);
     me-> unequip(7);
+    
+
     ICharacter* bob = new Character("bob");
 
     me->use(0, *bob);
