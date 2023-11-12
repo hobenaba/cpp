@@ -5,22 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 18:10:40 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 18:42:49 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/12 21:41:28 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/12 21:45:44 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type) : _type(type) {};
+AMateria::AMateria(std::string const & type) : _type(type)
+{
+    std::cout << "AMateria " << this -> _type << "created" << std::endl;
+}
 
-AMateria::AMateria() : _type("") {};
-
-AMateria::~AMateria() {};
+AMateria::AMateria(): _type("")
+{
+    std::cout << "AMateria " << this -> _type << "created" << std::endl;
+}
 
 AMateria::AMateria(const AMateria &src)
 {
-    this -> _type = src._type;
+    *this = src;
 }
 
 AMateria &AMateria::operator=(const AMateria &src)
@@ -29,12 +33,12 @@ AMateria &AMateria::operator=(const AMateria &src)
     return *this;
 }
 
-std::string const & AMateria::getType() const
+AMateria::~AMateria()
 {
-    return (_type);
+    std::cout << "AMateria " << this -> _type << "destroyed" << std::endl;
 }
 
-void AMateria::use(ICharacter& target)
+std::string const & AMateria::getType() const
 {
-    std::cout << "AMateria uses " << this -> _type << " on " << target.getName();
+    return (this -> _type);
 }

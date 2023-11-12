@@ -4,9 +4,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = materia
 
-SRCS = main.cpp AMateria.cpp Ice.cpp Cure.cpp # MateriaSource.cpp  
+SRCS = main.cpp AMateria.cpp Ice.cpp Cure.cpp MateriaSource.cpp  Character.cpp
 
-HEADERS = AMateria.hpp ICharacter.hpp Ice.hpp Cure.hpp #IMateriaSource.hpp MateriaSource.cpp  
+HEADERS = AMateria.hpp ICharacter.hpp Ice.hpp Cure.hpp IMateriaSource.hpp MateriaSource.cpp  Character.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 

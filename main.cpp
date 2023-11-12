@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 14:49:26 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 16:45:58 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/12 21:36:32 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/12 21:41:11 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@ int main()
 
     // ICharacter* me = new Character("me");
 
-    //AMateria* tmp;
+    // AMateria* tmp;
     // tmp = src->createMateria("ice");
     // me->equip(tmp);
     // tmp = src->createMateria("cure");
     // me->equip(tmp);
+    // me->unequip(0);
+    // me-> unequip(7);
+    
 
     // ICharacter* bob = new Character("bob");
 
@@ -42,14 +45,15 @@ int main()
 // Character me equipped with ice
 // AMateria cure created
 // Character me equipped with cure
+// AMateria ice destroyed
+// Character me unequipped
+// Character me can't unequip
 // Character bob created
-// I shoots an ice bolt at bob
-// Character me uses ice
+// Character me can't use
 // * heals bob's wounds *
 // Character me uses cure
 // Character bob destroyed
 // Character me destroyed
-// AMateria ice destroyed
 // AMateria cure destroyed
 // AMateria ice destroyed
 // AMateria cure destroyed
