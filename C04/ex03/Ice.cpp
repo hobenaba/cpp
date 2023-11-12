@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 21:46:55 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 21:51:14 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/12 22:21:15 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/12 22:26:36 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#include "Ice.hpp"
 
-#include "AMateria.hpp"
+Ice::Ice() : AMateria("ice") {};
 
-class Cure : public AMateria
+Ice::~Ice() {};
+
+Ice::Ice(const Ice &src)
 {
-    public :
-        Cure();
-        ~Cure()
-
-        Cure(const Cure &src);
-        Cure operator=(const Cure &src);
-
-        AMateria* clone() const = 0;
-        void use(ICharacter& target);
+    *this = src;
 }
-#endif
+
+AMateria* Ice::clone()
+{
+    return new Ice();
+}
+
+Ice Ice::operator=(const Ice &src)
+{
+    this -> _type = src._type;
+    return  *this
+}
+
+void Ice::use(ICharacter& target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
