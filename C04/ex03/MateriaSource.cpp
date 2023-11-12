@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:47:06 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:56:52 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:13:29 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,19 @@ void MateriaSource::learnMateria(AMateria *m)
     while (++i < 4)
     {
         if (materia[i] == NULL)
+        {
             materia[i] = m;
+            return ;
+        }
     }
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
     int i = -1;
-
     while (++i < 4)
     {
-        if (materia[i]->getType() == type)
+        if (materia[i] && materia[i]->getType() == type)
             return materia[i]->clone();
     }
     return NULL;

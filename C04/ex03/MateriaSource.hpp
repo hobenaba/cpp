@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:44:04 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:47:35 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 22:58:51 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "IMateriaSource.hpp"
 
-class MateriaSource : IMateriaSource
+class MateriaSource : public IMateriaSource
 {
     private :
         AMateria *materia[4];

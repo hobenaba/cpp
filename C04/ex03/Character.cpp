@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:58:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:19:31 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:16:22 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Character::Character() : _name("")
 
     while (++i < 4)
         this -> _inventory[i] = NULL;
-    std::cout << "Character " << _name << "is created" << std::endl;
+    std::cout << "Character " << _name << " created" << std::endl;
 }
 Character::Character(std::string name) : _name(name)
 {
@@ -26,7 +26,7 @@ Character::Character(std::string name) : _name(name)
 
     while (++i < 4)
         this -> _inventory[i] = NULL;
-    std::cout << "Character " << _name << "is created" << std::endl;
+    std::cout << "Character " << _name << " created" << std::endl;
 }
 Character::Character(const Character &src)
 {
@@ -68,7 +68,7 @@ void Character::equip(AMateria* m)
         if (this -> _inventory[i] == NULL)
         {
             std::cout << "Character " << _name << " equipped with "
-                << this -> _inventory[i]->getType() << std::endl; 
+                << m->getType() << std::endl; 
             this -> _inventory[i] = m;
             return ;
         }
@@ -78,7 +78,7 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
     //what should i do here!!! i mustnt delete in unequip!
-    if (this -> _inventory[idx])
+    if (idx >= 0 && idx < 4 && this -> _inventory[idx])
     {
         delete this -> _inventory[idx];
         this -> _inventory[idx] = NULL;
@@ -91,7 +91,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (this -> _inventory[idx])
+    if (idx >= 0 && idx < 4 && this -> _inventory[idx])
         std::cout << "Character " << target.getName() << " uses " << this ->_inventory[idx]->getType();
     else
         std::cout << "Character " << target.getName() << " can't use" << std::endl;

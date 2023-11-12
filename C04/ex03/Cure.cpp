@@ -6,13 +6,13 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:41:23 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:42:08 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:09:09 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("Cure") {};
+Cure::Cure() : AMateria("cure") {};
 
 Cure::~Cure() {};
 

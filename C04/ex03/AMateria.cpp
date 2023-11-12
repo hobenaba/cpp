@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:41:28 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 21:50:54 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:00:41 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 AMateria::AMateria(std::string const & type) : _type(type)
 {
-    std::cout << "AMateria " << this -> _type << "created" << std::endl;
+    std::cout << "AMateria " << this -> _type << " created" << std::endl;
 }
 
 AMateria::AMateria(): _type("")
 {
-    std::cout << "AMateria " << this -> _type << "created" << std::endl;
+    std::cout << "AMateria " << this -> _type << " created" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &src)
