@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:41:28 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 21:45:44 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:50:54 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ AMateria::~AMateria()
     std::cout << "AMateria " << this -> _type << "destroyed" << std::endl;
 }
 
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "AMateria uses " << this -> _type << " on " << target.getName() << std::endl;
+}
 std::string const & AMateria::getType() const
 {
     return (this -> _type);
