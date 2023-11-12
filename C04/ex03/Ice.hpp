@@ -6,10 +6,9 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:20:14 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:25:35 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 22:40:33 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef ICE_HPP
 #define ICE_HPP
@@ -25,7 +24,7 @@ class Ice : public AMateria
         Ice(const Ice &src);
         Ice operator=(const Ice &src);
 
-        AMateria* clone();
+        AMateria* clone() const;
         void use(ICharacter& target);
-}
+};
 #endif

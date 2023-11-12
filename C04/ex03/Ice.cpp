@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:21:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:26:36 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 22:38:52 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Ice::Ice(const Ice &src)
     *this = src;
 }
 
-AMateria* Ice::clone()
+AMateria* Ice::clone() const
 {
     return new Ice();
 }
@@ -29,7 +29,7 @@ AMateria* Ice::clone()
 Ice Ice::operator=(const Ice &src)
 {
     this -> _type = src._type;
-    return  *this
+    return  *this;
 }
 
 void Ice::use(ICharacter& target)

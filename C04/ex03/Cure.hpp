@@ -6,12 +6,12 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:46:55 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:21:08 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 22:41:16 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef Cure_HPP
+#define Cure_HPP
 
 #include "AMateria.hpp"
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
         Cure(const Cure &src);
         Cure operator=(const Cure &src);
 
-        AMateria* clone() const = 0;
+        AMateria* clone() const;
         void use(ICharacter& target);
-}
+};
 #endif
