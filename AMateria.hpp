@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 18:04:30 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 18:25:42 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 18:41:49 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class AMateria
     public:
         AMateria(std::string const & type);
         AMateria();
-        ~AMateria();
+        virtual ~AMateria();
         AMateria(const AMateria &src);
         AMateria &operator=(const AMateria &src);
         std::string const & getType() const; //Returns the materia type
