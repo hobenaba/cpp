@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:36:32 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:20:08 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:36:45 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int main()
 {
+
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:58:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:18:25 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/12 23:32:52 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void Character::unequip(int idx)
     {
         delete this -> _inventory[idx];
         this -> _inventory[idx] = NULL;
-        std::cout << "Character " << _name << " was unequipped" << std::endl;
+        std::cout << "Character " << _name << " unequipped" << std::endl;
     }
     else
         std::cout << "Character " << _name << " can't unequip" << std::endl;
@@ -92,7 +92,10 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
     if (idx >= 0 && idx < 4 && this -> _inventory[idx])
-        std::cout << "Character " << target.getName() << " uses " << this ->_inventory[idx]->getType() << std::endl;
+    {
+        std::cout << "Character " << this -> _name << " can't use" << std::endl;
+        this -> _inventory[idx] -> use(target);
+    }
     else
-        std::cout << "Character " << target.getName() << " can't use" << std::endl;
+        std::cout << "Character " << this -> _name << " can't use" << std::endl;
 }
