@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:20:14 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:40:33 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:14:43 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Ice : public AMateria
         ~Ice();
 
         Ice(const Ice &src);
-        Ice operator=(const Ice &src);
+        Ice &operator=(const Ice &src);
 
         AMateria* clone() const;
         void use(ICharacter& target);

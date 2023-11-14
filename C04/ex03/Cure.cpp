@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:41:23 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:09:09 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:14:16 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ AMateria* Cure::clone() const
     return new Cure();
 }
 
-Cure Cure::operator=(const Cure &src)
+Cure &Cure::operator=(const Cure &src)
 {
     this -> _type = src._type;
     return  *this;

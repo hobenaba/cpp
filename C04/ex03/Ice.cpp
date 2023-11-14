@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:21:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 22:38:52 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:14:48 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ AMateria* Ice::clone() const
     return new Ice();
 }
 
-Ice Ice::operator=(const Ice &src)
+Ice &Ice::operator=(const Ice &src)
 {
     this -> _type = src._type;
     return  *this;

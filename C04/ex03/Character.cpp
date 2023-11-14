@@ -3,21 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:58:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:32:52 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:57:46 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <unistd.h>
 
 Character::Character() : _name("")
 {
     int i = -1;
 
     while (++i < 4)
+    {
         this -> _inventory[i] = NULL;
+        this -> _save[i] = NULL;
+    }
     std::cout << "Character " << _name << " created" << std::endl;
 }
 Character::Character(std::string name) : _name(name)
@@ -25,7 +29,10 @@ Character::Character(std::string name) : _name(name)
     int i = -1;
 
     while (++i < 4)
+    {
         this -> _inventory[i] = NULL;
+        this -> _save[i] = NULL;
+    }
     std::cout << "Character " << _name << " created" << std::endl;
 }
 Character::Character(const Character &src)
@@ -37,11 +44,14 @@ Character::~Character()
     int i = -1;
     
     while (++i < 4)
+    {
         delete _inventory[i];
+        delete this -> _save[i];
+    }
     std::cout << "Character " << _name << " destroyed" << std::endl;
 }
 
-Character Character::operator=(const Character &src)
+Character &Character::operator=(const Character &src)
 {
     int i = -1;
 
@@ -49,7 +59,8 @@ Character Character::operator=(const Character &src)
     while (++i < 4)
     {
         delete this -> _inventory[i];
-        this -> _inventory[i] = src._inventory[i]->clone();
+        if (src._inventory[i])
+            this -> _inventory[i] = src._inventory[i]->clone();
     }
     return (*this);
 }
@@ -63,6 +74,9 @@ void Character::equip(AMateria* m)
 {
     int i = -1;
 
+    
+    while (this -> _save[i])
+        delete this -> _save[i];
     while (++i < 4)
     {
         if (this -> _inventory[i] == NULL)
@@ -70,6 +84,8 @@ void Character::equip(AMateria* m)
             std::cout << "Character " << _name << " equipped with "
                 << m->getType() << std::endl; 
             this -> _inventory[i] = m;
+            std::cout << m << std::endl;
+            sleep (1);
             return ;
         }
     }
@@ -77,10 +93,18 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    //what should i do here!!! i mustnt delete in unequip!
     if (idx >= 0 && idx < 4 && this -> _inventory[idx])
     {
-        delete this -> _inventory[idx];
+        int i = -1;
+
+        while (++i < 4)
+        {
+            if (this -> _save[i] == NULL)
+            {
+                this -> _save[i] = this -> _inventory[idx];
+                break;
+            }
+        }
         this -> _inventory[idx] = NULL;
         std::cout << "Character " << _name << " unequipped" << std::endl;
     }

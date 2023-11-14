@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:36:32 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:36:45 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:58:37 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,28 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-int main()
+int _main()
 {
 
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria(new Ice());
+    src -> learnMateria(new Cure());
 
     ICharacter* me = new Character("me");
-
     AMateria* tmp;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
+    //tmp = src->createMateria("ice");
+    //me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    me->unequip(0);
-    me-> unequip(7);
-    
-
+    me->equip(tmp);
+    delete me;
+    return 0;
+    me -> equip(tmp);
+    me -> unequip(1);
+    me -> unequip(0);
+    me -> unequip(7);
     ICharacter* bob = new Character("bob");
 
     me->use(0, *bob);
@@ -44,22 +48,9 @@ int main()
 
     return 0;
 }
-// AMateria ice created
-// AMateria cure created
-// Character me created
-// AMateria ice created
-// Character me equipped with ice
-// AMateria cure created
-// Character me equipped with cure
-// AMateria ice destroyed
-// Character me unequipped
-// Character me can't unequip
-// Character bob created
-// Character me can't use
-// * heals bob's wounds *
-// Character me uses cure
-// Character bob destroyed
-// Character me destroyed
-// AMateria cure destroyed
-// AMateria ice destroyed
-// AMateria cure destroyed
+//check leaks at last
+int main()
+{
+    _main();
+    //while(1);
+}

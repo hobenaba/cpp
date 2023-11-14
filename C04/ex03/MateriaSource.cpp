@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:47:06 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/12 23:13:29 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 23:47:13 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 MateriaSource::MateriaSource()
 {
     int i = -1;
+    
     while (++i < 4)
         this -> materia[i] = NULL;
 }
@@ -22,6 +23,7 @@ MateriaSource::MateriaSource()
 MateriaSource::~MateriaSource()
 {
     int i = -1;
+    
     while (++i < 4)
         delete this -> materia[i];
 }
@@ -31,7 +33,7 @@ MateriaSource::MateriaSource(const MateriaSource &src)
     *this = src;
 }
 
-MateriaSource MateriaSource::operator=(const MateriaSource &src)
+MateriaSource &MateriaSource::operator=(const MateriaSource &src)
 {
     int i = -1;
 
@@ -51,10 +53,11 @@ void MateriaSource::learnMateria(AMateria *m)
     {
         if (materia[i] == NULL)
         {
-            materia[i] = m;
-            return ;
+            materia[i] = m -> clone();
+            break;
         }
     }
+    delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
