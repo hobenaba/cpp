@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:33:59 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 12:35:10 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:00:39 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_HPP
-#define WRONG_HPP
+#define WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
 

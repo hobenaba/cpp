@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:12:34 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 17:40:13 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:41:19 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ Cat::Cat(const Cat &src) : Animal(src.type)
     std::cout << "copy constructor for " << type << " was called" << std::endl;
     *this = src;
 }
-Cat Cat::operator=(const Cat &src)
+Cat &Cat::operator=(const Cat &src)
 {
     this -> type = src.type;
-    this -> brain = new Brain(*this -> brain);
+    this -> brain = new Brain(*src.brain);
     return *this;
 }
 Cat::~Cat()
@@ -36,4 +36,13 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
     std::cout << "MEOW!!!" << std::endl;
+}
+
+void Cat::setBrain(int idx, int type, std::string str)
+{
+    brain->setIdea(idx, type, str);
+}
+void Cat::getBrain(int idx, int type)
+{
+    brain ->getIdea(idx, type);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:02:59 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 17:05:34 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:47:54 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ class Brain {
     public:
         Brain();
         Brain(const Brain &src);
-        Brain operator=(const Brain &src);
+        Brain &operator=(const Brain &src);
         ~Brain();
+        void setIdea(int idx, int type, std::string str);
+        void getIdea(int idx, int type);
 };
 #endif

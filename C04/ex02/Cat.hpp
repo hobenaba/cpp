@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:11:07 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 17:20:04 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:40:10 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ class Cat : public Animal {
     public :
         Cat();
         Cat(const Cat &src);
-        Cat operator=(const Cat &src);
+        Cat &operator=(const Cat &src);
         ~Cat();
         void makeSound() const;
+        void setBrain(int idx, int type, std::string str);
+        void getBrain(int idx, int type);
 } ;
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:00:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 17:39:45 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:43:00 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ Dog::Dog(const Dog &src) : Animal(src.type)
     std::cout << "copy constructor for " << type << " was called" << std::endl;
     *this = src;
 }
-Dog Dog::operator=(const Dog &src)
+Dog &Dog::operator=(const Dog &src)
 {
     this -> type = src.type;
-    this -> brain = new Brain(*this -> brain);
+    this -> brain = new Brain(*src.brain);
     return *this;
 }
 Dog::~Dog()
@@ -36,4 +36,13 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
     std::cout << "WOOF!!!" << std::endl;
+}
+
+void Dog::setBrain(int idx, int type, std::string str)
+{
+    brain->setIdea(idx, type, str);
+}
+void Dog::getBrain(int idx, int type)
+{
+    brain ->getIdea(idx, type);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:57:04 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 17:20:38 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:42:40 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ class Dog : public Animal
     public :
         Dog();
         Dog(const Dog &src);
-        Dog operator=(const Dog &src);
+        Dog &operator=(const Dog &src);
         ~Dog();
         void makeSound() const;
-
+        void setBrain(int idx, int type, std::string str);
+        void getBrain(int idx, int type);
 };
 #endif
