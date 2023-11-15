@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:36:32 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/14 23:58:37 by mac              ###   ########.fr       */
+/*   Updated: 2023/11/15 01:32:27 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int _main()
 
     ICharacter* me = new Character("me");
     AMateria* tmp;
-    //tmp = src->createMateria("ice");
+    tmp = src->createMateria("ice");
     //me->equip(tmp);
-    tmp = src->createMateria("cure");
+    //tmp = src->createMateria("cure");
     me->equip(tmp);
     me->equip(tmp);
     delete me;

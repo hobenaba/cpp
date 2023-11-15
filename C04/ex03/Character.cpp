@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:58:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/14 23:57:46 by mac              ###   ########.fr       */
+/*   Updated: 2023/11/15 01:31:49 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Character::Character() : _name("")
 Character::Character(std::string name) : _name(name)
 {
     int i = -1;
-
     while (++i < 4)
     {
         this -> _inventory[i] = NULL;
@@ -79,13 +78,11 @@ void Character::equip(AMateria* m)
         delete this -> _save[i];
     while (++i < 4)
     {
-        if (this -> _inventory[i] == NULL)
+        if (m != NULL && this -> _inventory[i] == NULL)
         {
             std::cout << "Character " << _name << " equipped with "
                 << m->getType() << std::endl; 
             this -> _inventory[i] = m;
-            std::cout << m << std::endl;
-            sleep (1);
             return ;
         }
     }
