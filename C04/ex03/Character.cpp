@@ -6,17 +6,16 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:58:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/15 01:38:23 by mac              ###   ########.fr       */
+/*   Updated: 2023/11/15 14:07:49 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-#include <unistd.h>
 
 Character::Character() : _name("")
 {
     int i = -1;
-
+    
     while (++i < 4)
     {
         this -> _inventory[i] = NULL;
@@ -27,6 +26,7 @@ Character::Character() : _name("")
 Character::Character(std::string name) : _name(name)
 {
     int i = -1;
+
     while (++i < 4)
     {
         this -> _inventory[i] = NULL;
@@ -41,7 +41,7 @@ Character::Character(const Character &src)
 Character::~Character()
 {
     int i = -1;
-    
+
     while (++i < 4)
     {
         delete _inventory[i];
@@ -82,7 +82,7 @@ void Character::equip(AMateria* m)
             std::cout << "Character " << _name << " equipped with "
                 << m->getType() << std::endl; 
             this -> _inventory[i] = m -> clone();
-            return ;
+            break ;
         }
     }
 }
