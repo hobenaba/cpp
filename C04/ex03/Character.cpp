@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:58:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/15 01:31:49 by mac              ###   ########.fr       */
+/*   Updated: 2023/11/15 01:38:23 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void Character::equip(AMateria* m)
 {
     int i = -1;
 
-    
     while (this -> _save[i])
         delete this -> _save[i];
     while (++i < 4)
@@ -82,7 +81,7 @@ void Character::equip(AMateria* m)
         {
             std::cout << "Character " << _name << " equipped with "
                 << m->getType() << std::endl; 
-            this -> _inventory[i] = m;
+            this -> _inventory[i] = m -> clone();
             return ;
         }
     }
