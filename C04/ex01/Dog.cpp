@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:00:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/14 21:43:00 by mac              ###   ########.fr       */
+/*   Updated: 2023/11/17 13:44:22 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Dog::Dog(const Dog &src) : Animal(src.type)
 Dog &Dog::operator=(const Dog &src)
 {
     this -> type = src.type;
+    delete this -> brain;
     this -> brain = new Brain(*src.brain);
     return *this;
 }
