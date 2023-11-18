@@ -23,10 +23,10 @@ WrongAnimal::WrongAnimal(std::string type) : type(type)
 }
 WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
-    this -> type = src.type;
+    *this = src;
     std::cout << "copy constructor for WrongAnimal was called" << std::endl;
 }
-WrongAnimal WrongAnimal::operator=(const WrongAnimal &src)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 {
     this -> type = src.type;
     return *this;

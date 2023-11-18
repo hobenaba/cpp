@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:50:40 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 12:38:28 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:25:25 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ Animal::Animal(std::string type) : type(type)
 }
 Animal::Animal(const Animal &src)
 {
-    this -> type = src.type;
+    *this = src;
     std::cout << "copy constructor for animal was called" << std::endl;
 }
-Animal Animal::operator=(const Animal &src)
+Animal &Animal::operator=(const Animal &src)
 {
     this -> type = src.type;
     return *this;

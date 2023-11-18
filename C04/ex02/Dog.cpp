@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:00:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/17 14:07:16 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:43:54 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ Dog::Dog() : Animal("Dog")
 Dog::Dog(const Dog &src) : Animal(src.type)
 {
     std::cout << "copy constructor for " << type << " was called" << std::endl;
+    this -> brain = NULL;
     *this = src;
 }
 Dog &Dog::operator=(const Dog &src)
 {
     this -> type = src.type;
-    delete this -> brain;
+    if (this -> brain)
+        delete this -> brain;
     this -> brain = new Brain(*src.brain);
     return *this;
 }

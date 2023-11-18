@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 22:47:06 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/15 01:30:40 by mac              ###   ########.fr       */
+/*   Updated: 2023/11/18 15:59:20 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,18 @@ MateriaSource::~MateriaSource()
     int i = -1;
     
     while (++i < 4)
-        delete this -> materia[i];
+    {
+        if (this -> materia[i])
+            delete this -> materia[i];
+    }
 }
 
 MateriaSource::MateriaSource(const MateriaSource &src)
 {
+    int i = -1;
+    
+    while (++i < 4)
+        this -> materia[i] = NULL;
     *this = src;
 }
 
@@ -39,7 +46,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src)
 
     while (++i < 4)
     {
-        delete this -> materia[i];
+        if (this -> materia[i])
+            delete this -> materia[i];
         this ->materia[i] = src.materia[i];
     }
     return (*this);

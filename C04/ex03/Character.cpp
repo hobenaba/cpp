@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 21:58:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/17 14:28:35 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/18 16:05:28 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ Character::Character(std::string name) : _name(name)
 }
 Character::Character(const Character &src)
 {
+    int i = -1;
+
+    while (++i < 4)
+    {
+        this -> _inventory[i] = NULL;
+        this -> _save[i] = NULL;
+    }
     *this = src;
 }
 Character::~Character()
@@ -44,8 +51,10 @@ Character::~Character()
 
     while (++i < 4)
     {
-        delete _inventory[i];
-        delete this -> _save[i];
+        if (this -> _inventory[i])
+            delete this -> _inventory[i];
+        if (this -> _save[i])
+            delete this -> _save[i];
     }
     std::cout << "Character " << _name << " destroyed" << std::endl;
 }
@@ -57,7 +66,8 @@ Character &Character::operator=(const Character &src)
     this -> _name = src._name;
     while (++i < 4)
     {
-        delete this -> _inventory[i];
+        if (this -> _inventory[i])
+            delete this -> _inventory[i];
         if (src._inventory[i])
             this -> _inventory[i] = src._inventory[i]->clone();
     }
@@ -113,7 +123,7 @@ void Character::use(int idx, ICharacter& target)
 {
     if (idx >= 0 && idx < 4 && this -> _inventory[idx])
     {
-        std::cout << "Character " << this -> _name << " can't use" << std::endl;
+        std::cout << "Character " << this -> _name << " uses" << std::endl;
         this -> _inventory[idx] -> use(target);
     }
     else

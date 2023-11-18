@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:12:34 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 12:22:05 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:26:23 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cat::Cat(const Cat &src) : Animal(src.type)
 {
     std::cout << "copy constructor for " << type << " was called" << std::endl;
 }
-Cat Cat::operator=(const Cat &src)
+Cat &Cat::operator=(const Cat &src)
 {
     this -> type = src.type;
     return *this;

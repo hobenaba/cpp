@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:57:04 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/14 19:57:11 by mac              ###   ########.fr       */
+/*   Updated: 2023/11/18 15:26:30 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Dog : public Animal
     public :
         Dog();
         Dog(const Dog &src);
-        Dog operator=(const Dog &src);
+        Dog &operator=(const Dog &src);
         ~Dog();
         void makeSound() const;
 };

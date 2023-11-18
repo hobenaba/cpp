@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:00:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/10 12:21:45 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:26:36 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Dog::Dog(const Dog &src) : Animal(src.type)
 {
     std::cout << "copy constructor for " << type << " was called" << std::endl;
 }
-Dog Dog::operator=(const Dog &src)
+Dog &Dog::operator=(const Dog &src)
 {
     this -> type = src.type;
     return *this;
