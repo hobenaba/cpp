@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:56:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 15:19:21 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:30:00 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ const char * Form::GradeTooLowException::what() const throw()
     return ("grade too low");
 }
 
+        
 std::ostream &operator<<(std::ostream &o, const Form &src)
 {
     o << "------The forms informations ------\n" << "name : " 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:10:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 15:13:03 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:30:21 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Form {
         int getGradeExec() const;
         bool getSign() const;
         
+        virtual void execute(Bureaucrat const &executor) = 0;
         class GradeTooHighException : public std::exception
         {
             public :
