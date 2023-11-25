@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:10:24 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 15:30:05 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:09:34 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Form;
 class Bureaucrat {

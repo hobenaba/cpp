@@ -4,9 +4,11 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = Form
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp  \
+	RobotomyRequestForm.cpp  PresidentialPardonForm.cpp 
 
-HEADERS = Bureaucrat.hpp Form.hpp
+HEADERS = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp \
+	PresidentialPardonForm.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 
