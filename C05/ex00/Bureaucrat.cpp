@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:15:07 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 12:16:20 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/25 14:53:58 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src)
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade)
 {
     //std::cout << "copy constructor called" << std::endl;
-    *this = src;
 }
 
 Bureaucrat::~Bureaucrat()

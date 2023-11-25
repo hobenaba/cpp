@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:10:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 13:21:32 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:13:03 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form {
     private:
         const std::string _name;

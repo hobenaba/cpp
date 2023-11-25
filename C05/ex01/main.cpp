@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:10:03 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 13:14:00 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:31:41 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int main( void )
 {
+
     try {
-        Bureaucrat bureaucrat("ash", 1);
+        Bureaucrat bureaucrat("ash",10);
+        Form form("formName", 1, 0);
+        bureaucrat.signForm(form);
 
-        std::cout << bureaucrat << std::endl;
-
-        bureaucrat.incrementGrade();
-        //bureaucrat.decrementGrade();
+        std::cout << form << std::endl;
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
