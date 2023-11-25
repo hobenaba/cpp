@@ -6,11 +6,11 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:10:03 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 12:16:41 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/25 13:14:00 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main( void )
 {
