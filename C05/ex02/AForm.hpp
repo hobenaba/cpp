@@ -15,6 +15,8 @@
 
 #include "Bureaucrat.hpp"
 #include <fstream>
+#include <time.h>
+
 class Bureaucrat;
 class Form {
     private:

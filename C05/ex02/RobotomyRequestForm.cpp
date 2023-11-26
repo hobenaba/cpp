@@ -6,11 +6,12 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 11:23:02 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 12:08:00 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:55:25 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("", 72, 45)
 {
@@ -41,12 +42,14 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
-    int *nu = new int;
-    std::cout << *nu << std::endl;
-
-    if (*nu % 2 == 0)
+    static int a;
+    srand(time(NULL));
+    
+    if (a == 0)
+        a = rand();
+    if (a % 2 == 0)
        std::cout << executor.getName() << " has been robotomized successfully" << std::endl; 
     else
         std::cout << "the robotomy failed for " << executor.getName() << std::endl;
-    //delete nu;
+    a++;
 } 
