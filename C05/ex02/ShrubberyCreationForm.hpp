@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:39:52 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 10:45:01 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/26 11:11:32 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public  AForm
+class ShrubberyCreationForm : public  Form
 {
     public :
     ShrubberyCreationForm();
