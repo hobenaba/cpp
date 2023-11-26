@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:15:07 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 16:41:38 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:59:47 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void Bureaucrat::executeForm(Form const &form)
 {
     try
     {
-        if (this -> getGrade() < form.getGradeExec())
+        if (this -> getGrade() <= form.getGradeExec())
         {
             form.execute(*this);
             std::cout << getName() << " executed " << form.getName() << std::endl;
