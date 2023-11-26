@@ -2,7 +2,7 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Form
+NAME = specialForm
 
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp  \
 	RobotomyRequestForm.cpp  PresidentialPardonForm.cpp 

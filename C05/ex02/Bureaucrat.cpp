@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:15:07 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 15:29:58 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/26 10:45:37 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,16 @@ const char *Bureaucrat::GradeTooLowException::what () const throw()
     return ("grade too low");
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &Aform)
 {
     try {
-        form.beSigned(*this);
-        if (form.getSign() == true)
-            std::cout << getName() << " signed " << form.getName() << std::endl;   
+        Aform.beSigned(*this);
+        if (Aform.getSign() == true)
+            std::cout << getName() << " signed " << Aform.getName() << std::endl;   
     }
     catch(std::exception &e)
     {
-        std::cout << getName() << " couldn't sign " << form.getName()
+        std::cout << getName() << " couldn't sign " << Aform.getName()
             << " beacause " << e.what() << std::endl;
     }
 }

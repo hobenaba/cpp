@@ -5,27 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 17:19:17 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/25 17:41:21 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/11/26 10:39:52 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/26 10:45:01 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBERRYCREATIONFORM.HPP
-#define SHRUBERRYCREATIONFORM.HPP
+#ifndef SHRUBBERYCREATIONFORM
+#define SHRUBBERYCREATIONFORM
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public  AForm
 {
-    public:
-        ShrubberyCreationForm();
-        ShrubberyCreationForm(std::string target);
-        ShrubberyCreationForm(const ShrubberyCreationForm &src);
-        ~ShrubberyCreationForm();
-
-        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
-        void execute(Bureaucrat const &executor);
-};
-
+    public :
+    ShrubberyCreationForm();
+    ShrubberyCreationForm(std::string target);
+    ShrubberyCreationForm(const ShrubberyCreationForm &src);
+    ~ShrubberyCreationForm();
+    
+    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
+    void execute(Bureaucrat const &executor) const;    
+} ;
 
 #endif
