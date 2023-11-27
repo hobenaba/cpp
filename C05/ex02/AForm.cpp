@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:56:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/27 15:21:55 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:07:13 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ Form::Form() : _name(""), _gradeSign(150), _gradeExec(150)
 
 Form::Form(std::string name, int gradeSign, int gradeExec) : _name(name), _gradeSign(gradeSign), _gradeExec(gradeExec), _signed(false)
 {
+     if (_gradeSign < 1 || _gradeExec < 1)
+        throw Form::GradeTooHighException();
+    else if (_gradeSign > 150 || _gradeExec > 150)
+        throw Form::GradeTooLowException();
     //std::cout << "constructor called" << std::endl;
 }
 
@@ -44,7 +48,7 @@ void Form::beSigned(const Bureaucrat &src)
     if (src.getGrade() <= this -> _gradeSign)
         this -> _signed = true;
     else
-        throw GradeTooLowException();
+        throw Form::GradeTooLowException();
 }
 
 std::string Form::getName() const

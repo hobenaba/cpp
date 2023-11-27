@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:56:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/27 14:51:04 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:07:03 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Form::beSigned(const Bureaucrat &src)
     if (src.getGrade() <= this -> _gradeSign)
         this -> _signed = true;
     else
-        throw GradeTooLowException();
+        throw Form::GradeTooLowException();
 }
 
 std::string Form::getName() const
