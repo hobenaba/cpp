@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 11:20:49 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 17:36:34 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:56:02 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class   RobotomyRequestForm : public  Form
         ~RobotomyRequestForm();
     
         RobotomyRequestForm &operator=(const   RobotomyRequestForm &src);
-    void execute(Bureaucrat const &executor) const;    
+        void executionForm(Bureaucrat const &executor) const;  
 } ;
 
 #endif

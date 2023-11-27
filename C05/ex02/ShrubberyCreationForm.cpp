@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:47:26 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 11:19:02 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:58:18 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : Form("", 145, 137)
 {
-    std::cout << "constructor called" << std::endl;
+    //std::cout << "constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form(target, 145, 137)
 {
-    std::cout << "constructor called" << std::endl;
+    //std::cout << "constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : Form(src)
 {
-    std::cout << "Copy constructor is called" << std::endl;
+    //std::cout << "Copy constructor is called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
@@ -39,7 +39,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+void ShrubberyCreationForm::executionForm(Bureaucrat const &executor) const
 {
     std::ofstream output;
 

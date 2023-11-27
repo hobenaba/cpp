@@ -32,8 +32,8 @@ class Form {
 
         Form &operator=(const Form &src);
         void beSigned(const Bureaucrat &src);
-        virtual void execute (Bureaucrat const &executor) const = 0;
-        void executeForm(Form const &form); 
+        void execute (Bureaucrat const &executor) const;
+        virtual void        executionForm(Bureaucrat const &executor) const = 0;
 
         std::string getName() const;
         int getGradeSign() const;

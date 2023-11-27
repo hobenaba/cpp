@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 18:10:03 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/27 16:12:50 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:42:40 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main( void )
 {
-
     try {
         Bureaucrat bureaucrat("ash",11);
         Form form("formName", 10, 1);

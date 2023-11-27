@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:56:11 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/27 16:07:13 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:53:21 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ const char * Form::GradeTooLowException::what() const throw()
     return ("grade too low");
 }
 
+void Form::execute(Bureaucrat const &src) const
+{
+    if (src.getGrade() <= getGradeExec() && getSign() == true)
+        executionForm(src);
+    else
+        throw Form::GradeTooLowException();
+}
 std::ostream &operator<<(std::ostream &o, const Form &src)
 {
     o << "------The forms informations ------\n" << "name : " 
@@ -89,4 +96,3 @@ std::ostream &operator<<(std::ostream &o, const Form &src)
 
     return (o);
 }
-

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 10:39:52 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 11:11:32 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:55:57 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ShrubberyCreationForm : public  Form
     ~ShrubberyCreationForm();
     
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
-    void execute(Bureaucrat const &executor) const;    
+    void executionForm(Bureaucrat const &executor) const;   
 } ;
 
 #endif

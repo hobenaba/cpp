@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 11:22:05 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 11:22:53 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:56:06 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PresidentialPardonForm : public  Form
         ~PresidentialPardonForm();
         
         PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
-        void execute(Bureaucrat const &executor) const;    
+        void executionForm(Bureaucrat const &executor) const;    
 } ;
 
 #endif

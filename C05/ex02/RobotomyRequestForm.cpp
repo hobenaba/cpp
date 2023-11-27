@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 11:23:02 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/26 17:55:25 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:58:27 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("", 72, 45)
 {
-    std::cout << "constructor called" << std::endl;
+    //std::cout << "constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form(target, 72, 45)
 {
-    std::cout << "constructor called" << std::endl;
+    //std::cout << "constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : Form(src)
 {
-    std::cout << "Copy constructor is called" << std::endl;
+    //std::cout << "Copy constructor is called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
@@ -40,7 +40,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
     return (*this);
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &executor) const
+void RobotomyRequestForm::executionForm(Bureaucrat const &executor) const
 {
     static int a;
     srand(time(NULL));
