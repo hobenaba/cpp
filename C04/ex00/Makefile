@@ -2,12 +2,11 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Animals
+NAME = Bureaucrat
 
-SRCS = main.cpp Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
-HEADERS = Animal.hpp Dog.hpp WrongAnimal.hpp Cat.hpp WrongCat.hpp
-
+HEADERS = Bureaucrat.hpp
 OBJECT = $(SRCS:.cpp=.o)
 
 all : $(NAME)

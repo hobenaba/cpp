@@ -3,24 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 11:39:26 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/18 15:42:48 by mac              ###   ########.fr       */
+/*   Created: 2023/11/24 18:10:03 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/27 16:42:40 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Form.hpp"
 
-int main()
+int main( void )
 {
-    Animal *animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
-    int i = -1;
-    while (++i < 4)
-        animals[i] -> makeSound();
-    i = -1;
-    while (++i < 4)
-        delete animals[i];
+    try {
+        Bureaucrat bureaucrat("ash",11);
+        Form form("formName", 10, 1);
+        form.beSigned(bureaucrat);
+        bureaucrat.signForm(form);
+
+        std::cout << form << std::endl;
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+    return 0;
 }

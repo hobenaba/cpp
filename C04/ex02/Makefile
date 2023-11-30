@@ -2,11 +2,13 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = protectAnimals
+NAME = specialForm
 
-SRCS = main.cpp Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp Brain.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp  \
+	RobotomyRequestForm.cpp  PresidentialPardonForm.cpp 
 
-HEADERS = Animal.hpp Dog.hpp WrongAnimal.hpp Cat.hpp WrongCat.hpp Brain.hpp
+HEADERS = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp \
+	PresidentialPardonForm.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 

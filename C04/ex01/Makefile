@@ -2,11 +2,11 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = smartAnimals
+NAME = Form
 
-SRCS = main.cpp Animal.cpp Dog.cpp WrongAnimal.cpp Cat.cpp WrongCat.cpp Brain.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 
-HEADERS = Animal.hpp Dog.hpp WrongAnimal.hpp Cat.hpp WrongCat.hpp Brain.hpp
+HEADERS = Bureaucrat.hpp Form.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 

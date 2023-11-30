@@ -3,37 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 21:36:32 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/18 16:06:01 by mac              ###   ########.fr       */
+/*   Created: 2023/11/24 18:10:03 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/27 17:17:31 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MateriaSource.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
+#include "AForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-    IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-    ICharacter* me = new Character("me");
-    AMateria* tmp;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    delete tmp;
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-    delete tmp;
-    ICharacter* bob = new Character("bob");
-    
-    me->use(0, *bob);
-    me->use(1, *bob);
-    delete bob;
-    delete me;
-    delete src;
-    return 0;
+    Intern someRandomIntern;
+    Form* rrf;
+    rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+    Bureaucrat bureaucrat("josh", 45);
+    if (rrf != NULL)
+        rrf -> execute(bureaucrat);
 }

@@ -3,40 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 11:39:26 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/11/18 15:32:03 by mac              ###   ########.fr       */
+/*   Created: 2023/11/24 18:10:03 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/11/27 14:27:11 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Bureaucrat.hpp"
 
-int main()
+int main( void )
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound();
-    j->makeSound();
-    meta->makeSound();
-    delete i;
-    delete j;
-    delete meta;
-    
-    std::cout << "--------SECOND PART --------" << std::endl;
-    
-    const WrongAnimal* a = new WrongAnimal();
-    const WrongAnimal* b = new WrongCat();
-    std::cout << a->getType() << " " << std::endl;
-    std::cout << b->getType() << " " << std::endl;
-    a->makeSound();
-    b->makeSound(); 
+    try {
+        Bureaucrat bureaucrat("ash", 1);
 
-    delete a;
-    delete b; 
+        std::cout << bureaucrat << std::endl;
+
+        bureaucrat.incrementGrade();
+        //bureaucrat.decrementGrade();
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+    return 0;
 }
