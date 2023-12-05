@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 15:38:52 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/05 16:03:30 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:14:25 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,51 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::convert(std::string literal)
 {
-    toChar(literal);
+    void (*FuncPtr[]) (std::string) = {&toChar, &toInt, &toFloat, &toDouble};
+    
+    int i = -1;
+    while (++i < 4)
+    {
+        try{
+            (*FuncPtr[i])(literal);   
+        }
+        catch(std::exception &e)
+        {
+            std::cout << "impossible" << std::endl;
+        }
+    }
 }
 
 void toChar(std::string literal)
 {
     std::cout << "char : ";
     
-    std::cout << static_cast<int>(literal) << std::endl;
+    int a = std::stoi(literal);
+    
+    if (!(a >= 32 && a <= 126))
+        std::cout << "not displayable" << std::endl;
+    else
+        std::cout <<  static_cast<char>(a) << std::endl;
 }
 
+void toInt(std::string literal)
+{
+    std::cout << "int : ";
+    
+    std::cout << std::stoi(literal) << std::endl;;
+}
+
+void toFloat(std::string literal)
+{
+    std::cout << "float : ";
+    //std::cout << literal << std::endl;
+    std::cout << std::stof(literal) << std::endl;
+}
+
+void toDouble(std::string literal)
+{
+    std::cout << "double : ";
+
+    std::cout << std::stod(literal) << std::endl;
+}
 //std::stoi to int // stof -> float // stod -> to double
