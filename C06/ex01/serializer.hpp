@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:44:07 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/07 15:54:54 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:43:49 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 #include <iostream>
 
 class Data{
-    private:
-        std::string name;
     public:
-        Data(std::string name);
+        std::string name;
 };
 
 class Serializer
@@ -31,6 +29,6 @@ class Serializer
         static uintptr_t serialize(Data *ptr);
         static Data *deserialize(uintptr_t raw);
         ~Serializer(); 
-}
+};
 
 // if destructor private means i cant delete the object only inside a member function

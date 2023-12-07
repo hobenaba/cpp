@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:55:25 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/07 15:58:24 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:43:03 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,19 @@ Serializer &Serializer::operator=(const Serializer &src)
 {
     (void)src;
     std::cout << "copy assignment called" << std::endl;
+
+    return (*this);
 }
 
-static uintptr_t Serializer::serialize(Data *ptr);
-static Data *Serializer::deserialize(uintptr_t raw);
+uintptr_t Serializer::serialize(Data *ptr)
+{
+    return (reinterpret_cast <uintptr_t>(ptr));
+}
+
+Data *Serializer::deserialize(uintptr_t raw)
+{
+    return (reinterpret_cast<Data *>(raw));
+}
 
 Serializer::~Serializer()
 {

@@ -4,9 +4,9 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = serializer
 
-SRCS = main.cpp Data.cpp
+SRCS = main.cpp Serializer.cpp
 
-HEADERS = Data.hpp
+HEADERS = Serializer.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 
