@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:03:37 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/07 17:09:29 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:52:24 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int main()
 {
     Base *base = generate();
-    identify(base);
+    identify(*base);
 }

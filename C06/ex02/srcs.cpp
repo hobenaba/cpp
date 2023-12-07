@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:00:49 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/07 17:15:59 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/07 18:03:06 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,19 @@ void identify(Base *p)
     else if (c != NULL)
         std::cout << "C" << std::endl;
 }
-// void identify(Base &p);
+void identify(Base &p)
+{
+    try{
+        A &a = dynamic_cast<A&>(p);
+        B &b = dynamic_cast<B&>(p);
+        C &c = dynamic_cast<C&>(p);
+        (void)b;
+        (void)c;
+    }
+    catch(std::exception &e)
+    {
+        std::cout << a << std::endl;
+        std::cout << "imhier\n";
+    }
+}
 
