@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 15:34:01 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/05 17:48:57 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/12/09 10:12:02 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/12/09 10:13:42 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#pragma once
 
 #include <iostream>
 
@@ -20,16 +19,8 @@ class ScalarConverter {
     private:
         ScalarConverter();
         ScalarConverter(const ScalarConverter &src);
-        ScalarConverter &operator=(const ScalarConverter &src);
-
+        ScalarConverter operator=(const ScalarConverter &src);
     public:
-        static void convert(std::string literal);
         ~ScalarConverter();
+        static void convert(std::string literal);  
 };
-
-void    toChar(std::string literal);
-void    toInt(std::string literal);
-void    toFloat(std::string literal);
-void    toDouble(std::string literal);
-
-#endif
