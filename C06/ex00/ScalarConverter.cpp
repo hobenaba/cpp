@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:13:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/09 18:17:03 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/09 18:28:59 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,49 @@ void convertToChar(std::string literal)
     else if (!(num >= 32 && num <= 126))
         std::cout << "non displayable" << std::endl;
     else
-        std::cout << static_cast<char>(num) << std::endl;
+        std::cout << "\'" <<static_cast<char>(num) << "\'"<< std::endl;
     
 }
 
 void convertToInt(std::string literal)
 {
     std::cout << "int: ";
+    char *ptr;
     
-    int num = strtod(literal, )
-    //  i donty know how im gonna do this ????
-    
+    int num = strtod(literal.c_str(), &ptr);
+    if (*ptr && literal.length() == 1)
+        std::cout << static_cast<int>(literal[0]) << std::endl;
+    else
+        std::cout << num << std::endl;
+}
+
+void convertToFloat(std::string literal)
+{
+    std::cout << "float: ";
+    char *ptr;
+
+    float num = strtod(literal.c_str(), &ptr);
+    if (*ptr && literal.length() == 1)
+        std::cout << static_cast<float>(literal[0]) << std::endl;
+    else
+        std::cout << num << std::endl;
+}
+
+void convertToDouble(std::string literal)
+{
+    std::cout << "double: ";
+    char *ptr;
+
+    double num = strtod(literal.c_str(), &ptr);
+    if (*ptr && literal.length() == 1)
+        std::cout << static_cast<double>(literal[0]) << std::endl;
+    else
+        std::cout << num << std::endl;
 }
 void ScalarConverter::convert(std::string literal)
 {
     convertToChar(literal);
+    convertToInt(literal);
+    convertToFloat(literal);
+    convertToDouble(literal);
 }
