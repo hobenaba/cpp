@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:13:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/09 10:30:45 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/09 18:17:03 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,30 @@ ScalarConverter::~ScalarConverter()
     std::cout << "destructor called" << std::endl;
 }
 
-void ScalarConverter::convert(std::string literal);  
+void convertToChar(std::string literal)
+{
+    std::cout << "char: ";
+    char *ptr;
+    
+    int num = strtod(literal.c_str(), &ptr);
+    if (*ptr && literal.length() == 1)
+        std::cout << literal << std::endl;
+    else if (!(num >= 32 && num <= 126))
+        std::cout << "non displayable" << std::endl;
+    else
+        std::cout << static_cast<char>(num) << std::endl;
+    
+}
+
+void convertToInt(std::string literal)
+{
+    std::cout << "int: ";
+    
+    int num = strtod(literal, )
+    //  i donty know how im gonna do this ????
+    
+}
+void ScalarConverter::convert(std::string literal)
+{
+    convertToChar(literal);
+}

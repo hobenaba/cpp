@@ -6,13 +6,14 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:12:02 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/09 10:13:42 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/09 18:00:49 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <cstdlib>
 
 class ScalarConverter {
     
@@ -22,5 +23,7 @@ class ScalarConverter {
         ScalarConverter operator=(const ScalarConverter &src);
     public:
         ~ScalarConverter();
-        static void convert(std::string literal);  
+        static void convert(std::string literal);
 };
+void convertToChar(std::string literal);
+void convertToInt(std::string literal);
