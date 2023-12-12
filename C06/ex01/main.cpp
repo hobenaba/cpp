@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:41:13 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/07 16:47:18 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:26:52 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int main()
     
     Data *out = Serializer::deserialize(ptr);
     std::cout << "Data NOT original : " << out -> name << std::endl;
+    delete test;
 }

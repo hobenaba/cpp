@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:00:49 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/09 09:53:02 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:42:52 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ Base *generate(void)
     int a = rand();
     
     if (a % 5 == 0)
-        return (new C);
+        return (std::cout << "C class was generated" << std::endl, new C);
     else if (a % 3 == 0)
-        return (new B);
+        return (std::cout << "B class was generated" << std::endl, new B);
     else
-        return (new A);
+        return (std::cout << "A class was generated" << std::endl, new A);
     return (NULL);
 }
 
