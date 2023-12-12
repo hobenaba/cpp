@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:12:02 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/09 18:24:26 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:09:20 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScalarConverter {
         ~ScalarConverter();
         static void convert(std::string literal);
 };
-void convertToChar(std::string literal);
-void convertToInt(std::string literal);
+void convertToChar(std::string literal, int status);
+void convertToInt(std::string literal, int status);
 void convertToFloat(std::string literal);
 void convertToDouble(std::string literal);
