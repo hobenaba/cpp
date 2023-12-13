@@ -2,11 +2,11 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = whatever
+NAME = iter
 
 SRCS = main.cpp
 
-HEADERS = whatever.hpp
+HEADERS = iter.hpp
 
 OBJECT = $(SRCS:.cpp=.o)
 
