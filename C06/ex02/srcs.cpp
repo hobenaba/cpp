@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:00:49 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/12 14:42:52 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:40:29 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ Base *generate(void)
         return (std::cout << "C class was generated" << std::endl, new C);
     else if (a % 3 == 0)
         return (std::cout << "B class was generated" << std::endl, new B);
-    else
-        return (std::cout << "A class was generated" << std::endl, new A);
-    return (NULL);
+    return (std::cout << "A class was generated" << std::endl, new A);
 }
 
 void identify(Base *p)

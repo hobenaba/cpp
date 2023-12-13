@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:13:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/12 18:37:20 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:34:03 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter &src)
     std::cout << "copy constructor called" << std::endl;
 }
 
-ScalarConverter ScalarConverter::operator=(const ScalarConverter &src)
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &src)
 {
     (void)src;
     std::cout << "copy assignment called" << std::endl;
@@ -60,7 +60,7 @@ void convertToInt(std::string literal, int status, double num, char *ptr)
     else if (*ptr && literal.length() == 1)
         std::cout << static_cast<int>(literal[0]) << std::endl;
     else
-        std::cout << num << std::endl;
+        std::cout << static_cast<int>(num) << std::endl;
 }
 
 void convertToFloat(std::string literal, double num, char *ptr)
@@ -71,10 +71,10 @@ void convertToFloat(std::string literal, double num, char *ptr)
         std::cout << static_cast<float>(literal[0]) << ".0f" << std::endl;
     else
     {
-        if (static_cast<int>(num) == num)
-            std::cout << num << ".0f" << std::endl;
+        if (static_cast<int>(num) == static_cast<float>(num))
+            std::cout << static_cast<float>(num) << ".0f" << std::endl;
         else
-            std::cout << num << "f" << std::endl;
+            std::cout << static_cast<float>(num) << "f" << std::endl;
     }
 }
 
@@ -99,9 +99,9 @@ void ScalarConverter::convert(std::string literal)
     
     try{
         double num = strtod(literal.c_str(), &ptr);
-        if(*ptr && literal.length() != 1)
+        std::string str = ptr;
+        if(*ptr && literal.length() != 1 && !(str.length() == 1 && *ptr == 'f'))
             throw "invalid input";
-            std::cout << "error \n";
         if (literal == "-inff" || literal == "+inff" || literal == "nanf"
             || literal == "-inf" || literal == "+inf" || literal == "nan")
                 status = 1;

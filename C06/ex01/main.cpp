@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:41:13 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/12 18:26:52 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:39:43 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
     Data *test = new Data;
-    test  -> name = "test";
+    test  -> name = "eva";
 
     std::cout << "original : " << test -> name << std::endl;
     

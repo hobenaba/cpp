@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   serializer.hpp                                     :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:44:07 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/07 16:43:49 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:39:33 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,3 @@ class Serializer
         static Data *deserialize(uintptr_t raw);
         ~Serializer(); 
 };
-
-// if destructor private means i cant delete the object only inside a member function

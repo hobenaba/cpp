@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 10:12:02 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/12 18:30:19 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:17:51 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ScalarConverter {
     private:
         ScalarConverter();
         ScalarConverter(const ScalarConverter &src);
-        ScalarConverter operator=(const ScalarConverter &src);
+        ScalarConverter &operator=(const ScalarConverter &src);
     public:
         ~ScalarConverter();
         static void convert(std::string literal);
