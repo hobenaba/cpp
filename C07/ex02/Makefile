@@ -6,13 +6,14 @@ NAME = array
 
 SRCS = main.cpp
 
-HEADERS = Array.hpp
-
 OBJECT = $(SRCS:.cpp=.o)
+
+HEADERS : Array.hpp
+	rm -rf $(OBJECT)
 
 all : $(NAME)
 
-$(NAME) : $(OBJECT) $(HEADERS)
+$(NAME) : $(OBJECT) HEADERS
 	@$(CC) $(CPPFLAGS) $(OBJECT) -o $(NAME)
 	@echo "\033[0;35mcompiled !!!!\033[0m"
 
