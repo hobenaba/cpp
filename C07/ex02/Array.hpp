@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:27:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/17 18:38:43 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:34:56 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Array
         
         ~Array()
         {
-            std::cout << "destructor called" << std::endl;
+            //std::cout << "destructor called" << std::endl;
             delete [] _arr;
         }
 
