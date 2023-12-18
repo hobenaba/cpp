@@ -12,6 +12,9 @@ OBJECT = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
+%.o : %.cpp $(HEADERS)
+	@$(CC) $(CPPFLAGS) -c $< -o $@
+	
 $(NAME) : $(OBJECT) $(HEADERS)
 	@$(CC) $(CPPFLAGS) $(OBJECT) -o $(NAME)
 	@echo "\033[0;35mcompiled !!!!\033[0m"

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:27:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/17 19:34:56 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:57:05 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ class Array
                 this -> _arr[i] = src._arr[i];
             return (*this);
         }
-        size_t size()
+        size_t size() const
         {
             return (_size);
         }
 
-        T &operator[](unsigned int n)
+        T &operator[](unsigned int n) const
         {
             if (n >= this -> _size)
                 throw OutOfBounds();
