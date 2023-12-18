@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 15:27:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/18 12:57:05 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/18 15:30:06 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Array
         size_t _size;
         T *_arr;    
     public:
-        Array() : _size(0), _arr(new T)
+        Array() : _size(0), _arr(new T[0])
         {
             //std::cout << "default constructor called" << std::endl;
         }
@@ -42,12 +42,12 @@ class Array
         Array(const Array &src)
         {
             //std::cout << "copy constructor called" << std::endl;
-            this -> _arr = new T[src._size];
             *this = src;
         }
         Array &operator=(const Array &src)
         {
             this -> _size = src._size;
+            this -> _arr = new T[src._size];
             size_t i = -1;
             while (++i < this -> _size)
                 this -> _arr[i] = src._arr[i];
@@ -58,7 +58,13 @@ class Array
             return (_size);
         }
 
-        T &operator[](unsigned int n) const
+        T &operator[](unsigned int n)
+        {
+            if (n >= this -> _size)
+                throw OutOfBounds();
+            return (this -> _arr[n]);
+        }
+        const T &operator[](unsigned int n) const
         {
             if (n >= this -> _size)
                 throw OutOfBounds();
@@ -72,4 +78,3 @@ class Array
             }
         };
     };
-// there is a problem with the makefile
