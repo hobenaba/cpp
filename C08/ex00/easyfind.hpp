@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:12:43 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/19 19:21:22 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:37:44 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #include <iostream>
 #include <algorithm>
-#include <vector>
 
 template <typename T>
 

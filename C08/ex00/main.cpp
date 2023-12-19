@@ -6,11 +6,12 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:17:22 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/19 19:24:20 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:37:51 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
+#include <vector>
 
 int main ()
 {
