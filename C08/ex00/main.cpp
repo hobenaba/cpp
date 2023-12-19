@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 19:17:22 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/19 19:37:51 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/19 19:39:31 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,5 @@ int main ()
     easyfind(numbers, 0);
     easyfind(numbers, -11);
 }
+
+//to test out other containers for learning purposes.
