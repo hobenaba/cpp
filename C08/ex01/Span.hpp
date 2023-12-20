@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:43:08 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/20 16:06:45 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:54:50 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <algorithm>
 #include <cstdlib>
 
+#define iteratorType std::vector<int>::iterator
 class Span {
     private:
         unsigned int _N;
@@ -30,7 +31,7 @@ class Span {
         ~Span();
 
         void addNumber(int n);
-        void addNumber(std::vector<int> numbers);
+        void addNumber(iteratorType begin, iteratorType end);
         int shortestSpan();
         int longestSpan();
 

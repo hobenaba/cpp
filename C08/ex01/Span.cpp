@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:46:49 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/20 16:16:12 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/20 17:01:02 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ void Span::addNumber(int n)
     this ->_Numbers.push_back(n);
 }
 
-void Span::addNumber(std::vector<int> numbers)
+void Span::addNumber(const iteratorType begin, const iteratorType end)
 {
-    if (numbers.size() > this -> _N)
+    if (end - begin > this -> _N)
         throw Span::fullContainer();
-    std::vector<int>::iterator it = numbers.begin() - 1;
-    while (++it < numbers.end())
+    iteratorType it = begin - 1;
+    while (++it < end)
         this->_Numbers.push_back(*it);
 }
 int Span::shortestSpan()
