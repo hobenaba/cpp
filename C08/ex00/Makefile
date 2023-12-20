@@ -1,16 +1,16 @@
-CC = c++
+CC= c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = array
+NAME = easyfind
 
 SRCS = main.cpp
 
 OBJECT = $(SRCS:.cpp=.o)
 
-HEADERS = Array.hpp
+HEADERS = easyfind.hpp
 
-all : $(NAME)
+all : $(NAME) 
 
 %.o : %.cpp $(HEADERS)
 	@$(CC) $(CPPFLAGS) -c $< -o $@
