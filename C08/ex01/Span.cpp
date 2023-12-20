@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:46:49 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/20 17:01:02 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:48:29 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Span::addNumber(int n)
 
 void Span::addNumber(const iteratorType begin, const iteratorType end)
 {
-    if (end - begin > this -> _N)
+    if (static_cast<unsigned long>(end - begin) > this -> _N - this -> _Numbers.size())
         throw Span::fullContainer();
     iteratorType it = begin - 1;
     while (++it < end)
