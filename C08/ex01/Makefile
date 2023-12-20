@@ -2,7 +2,7 @@ CC = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = array
+NAME = span
 
 SRCS = main.cpp Span.cpp
 
