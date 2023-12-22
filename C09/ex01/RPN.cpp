@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:39:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/22 17:41:22 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:53:01 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,18 @@ void RPN::execute(char *expression)
         {
             if (str[j] == *expression)
             {
-                (this->*caller[j])();
+                if (this ->data.size() == 2)
+                    (this->*caller[j])();
+                else
+                    throw std::runtime_error("Error\noperation invalid");
                 //std::cout << "first operation : ";
                 //std::cout << this -> data.top() << std::endl;
                 break ;
             }
-            else if (!(*expression >= 0 && *expression <= 9))
-                throw std::runtime_error("Error\noperation invalid");
             else if (j == 3)
             {
+                if (!(*expression >= '0' && *expression <= '9'))
+                    throw std::runtime_error("Error\noperation invalid");
                 //std::cout << *expression << std::endl;
                 //std::cout << this -> data.top() << std::endl;
                 this->data.push(*expression - '0');
@@ -100,6 +103,8 @@ void RPN::execute(char *expression)
             i++;
         expression += i + 1;
     }
+    if (this -> data.size() != 1)
+        throw std::runtime_error("Error\noperation invalid");
     std::cout << "RESULT" << std::endl;
     std::cout << this -> data.top() << std::endl;
 }
