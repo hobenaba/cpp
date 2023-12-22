@@ -5,107 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 15:39:15 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/22 17:53:01 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/12/22 21:12:47 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/12/22 21:36:38 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::RPN()
-{
-    //std::cout << "default constructor called " << std::endl;
-}
+RPN::RPN(){}
 
 RPN::RPN(const RPN &src)
 {
-    std::cout << "copy constructor called" << std::endl;
-    *this = src;
+    (void)src;
 }
 
 RPN &RPN::operator=(const RPN &src)
 {
-    (void)src;
-    //lets check out what i should do here.
+    (void)src; 
 
     return (*this);
 }
 
-RPN::~RPN()
-{
-    //std::cout << "destructor called" << std::endl;
-}
+RPN::~RPN(){}
 
-void RPN::addition()
+//got to check this out
+
+void RPN::multiplication()
 {
-    int b = this -> data.top();
-    this -> data.pop();
-    b = b + this -> data.top();
-    this -> data.pop();
-    this -> data.push(b);
+    int tmp = this ->numbers.top();
+    this -> numbers.pop();
+
+    tmp = this -> numbers.top() * tmp;
+    this -> numbers.pop();
+
+    this -> numbers.push(tmp);
+}
+void RPN::devision()
+{
+    int tmp = this ->numbers.top();
+    this -> numbers.pop();
+
+    tmp = this -> numbers.top() / tmp;
+    this -> numbers.pop();
+
+    this -> numbers.push(tmp);
 }
 
 void RPN::difference()
 {
-    int b = this -> data.top();
-    this -> data.pop();
-    b = this -> data.top() - b;
-    this -> data.pop();
-    this -> data.push(b);
+    int tmp = this ->numbers.top();
+    this -> numbers.pop();
+
+    tmp = tmp - this -> numbers.top();
+    this -> numbers.pop();
+
+    this -> numbers.push(tmp);
 }
-void RPN::multiplication()
+
+void RPN::addition()
 {
-    int b = this -> data.top();
-    this -> data.pop();
-    b = b * this -> data.top();
-    this -> data.pop();
-    this -> data.push(b);
+    int tmp = this ->numbers.top();
+    this -> numbers.pop();
+
+    tmp = tmp + this -> numbers.top();
+    this -> numbers.pop();
+
+    this -> numbers.push(tmp);
 }
-void RPN::division()
+
+int RPN::execute(const char *expression)
 {
-    int b = this -> data.top();
-    this -> data.pop();
-    b = this -> data.top() / b;
-    this -> data.pop();
-    this -> data.push(b);
-}
-void RPN::execute(char *expression)
-{
+    int i;
     std::string str = "+-/*";
-    int i = 0;
-    void (RPN::*caller[]) (void) = {&RPN::addition, &RPN::difference, &RPN::division, &RPN::multiplication};
+    void (RPN::*helper[])(void) ={&RPN::addition, &RPN::difference, &RPN::devision, &RPN::multiplication};
+
     while (*expression)
     {
         i = 0;
-        int j = -1;
-        while (str[++j])
+        if (!(*expression >= '0' && *expression <= '9'))
         {
-            if (str[j] == *expression)
+            int j = -1;
+            while (str[++j])
             {
-                if (this ->data.size() == 2)
-                    (this->*caller[j])();
-                else
-                    throw std::runtime_error("Error\noperation invalid");
-                //std::cout << "first operation : ";
-                //std::cout << this -> data.top() << std::endl;
-                break ;
+                if (str[j] == *expression)
+                {
+                    (this->*helper[j])();
+                    std::cout << this -> numbers.top() << std::endl;
+                    break;
+                }
+                else if (j == 3)
+                    throw std::runtime_error("Error\nUsage of undefined characters");
             }
-            else if (j == 3)
-            {
-                if (!(*expression >= '0' && *expression <= '9'))
-                    throw std::runtime_error("Error\noperation invalid");
-                //std::cout << *expression << std::endl;
-                //std::cout << this -> data.top() << std::endl;
-                this->data.push(*expression - '0');
-            }
-        } 
+        }
+        else
+            this -> numbers.push(*expression - '0');
         while (expression[i] && expression[i + 1] == ' ')
             i++;
         expression += i + 1;
     }
-    if (this -> data.size() != 1)
-        throw std::runtime_error("Error\noperation invalid");
-    std::cout << "RESULT" << std::endl;
-    std::cout << this -> data.top() << std::endl;
+    return (this -> numbers.top());
 }
-//the number got to be an int
+//check out empty string.

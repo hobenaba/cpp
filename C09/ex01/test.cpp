@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 21:06:46 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/22 21:20:26 by hobenaba         ###   ########.fr       */
+/*   Created: 2023/12/22 21:15:05 by hobenaba          #+#    #+#             */
+/*   Updated: 2023/12/22 21:15:43 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include <stack>
 
-int main(int ac, char **av)
+int main ()
 {
-    if (ac != 2)
-        return (std::cout << "./RPN <expression>", 1);
-    try{
-        RPN rpn;
-        int a = rpn.execute(av[1]);
-        std::cout << "Result : " << a << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what()  << std::endl;
-    }
-    return (0);
+    std::stack <int> tmp;
+
+    tmp.push(6);
+
+    int a = tmp.pop();
 }
