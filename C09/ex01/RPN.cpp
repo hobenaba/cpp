@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 21:12:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/23 21:29:28 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:37:13 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ RPN &RPN::operator=(const RPN &src)
 
 RPN::~RPN(){}
 
-//got to check this out
+//got to check this out canonical form 
 
 void RPN::multiplication()
 {
@@ -75,32 +75,35 @@ void RPN::addition()
     this -> _numbers.push(tmp);
 }
 
+void RPN::checkChar(char c)
+{
+    void (RPN::*helper[])(void) ={&RPN::addition, &RPN::difference, &RPN::devision, &RPN::multiplication};
+    std::string str = "+-/*";
+    int j = -1;
+    
+    while (str[++j])
+    {
+        if (str[j] == c)
+        {
+            if (this -> _numbers.size() > 1)
+                (this->*helper[j])();
+            else
+                throw std::runtime_error("Error\ninvalid Operation");
+            break;
+        }
+        else if (j == 3)
+            throw std::runtime_error("Error\nUsage of undefined characters");
+    }
+}
 int RPN::execute(const char *expression)
 {
     int i;
-    std::string str = "+-/*";
-    void (RPN::*helper[])(void) ={&RPN::addition, &RPN::difference, &RPN::devision, &RPN::multiplication};
 
     while (*expression)
     {
         i = 0;
         if (!isdigit(*expression) && !isspace(*expression))
-        {
-            int j = -1;
-            while (str[++j])
-            {
-                if (str[j] == *expression)
-                {
-                    if (this -> _numbers.size() > 1)
-                        (this->*helper[j])();
-                    else
-                        throw std::runtime_error("Error\ninvalid Operation");
-                    break;
-                }
-                else if (j == 3)
-                    throw std::runtime_error("Error\nUsage of undefined characters");
-            }
-        }
+            checkChar(*expression);
         else if (isdigit(*expression))
             this -> _numbers.push(*expression - '0');
         while (expression[i] && expression[i + 1] == ' ')
