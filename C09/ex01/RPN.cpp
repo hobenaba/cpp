@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 21:12:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/22 21:36:38 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:29:28 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,45 +32,47 @@ RPN::~RPN(){}
 
 void RPN::multiplication()
 {
-    int tmp = this ->numbers.top();
-    this -> numbers.pop();
+    int tmp = this ->_numbers.top();
+    this -> _numbers.pop();
 
-    tmp = this -> numbers.top() * tmp;
-    this -> numbers.pop();
+    tmp = this -> _numbers.top() * tmp;
+    this -> _numbers.pop();
 
-    this -> numbers.push(tmp);
+    this -> _numbers.push(tmp);
 }
 void RPN::devision()
 {
-    int tmp = this ->numbers.top();
-    this -> numbers.pop();
+    int tmp = this ->_numbers.top();
+    this -> _numbers.pop();
+    
+    if (tmp == 0)
+        throw std::runtime_error("Error\nDevision on 0");
+    tmp = this -> _numbers.top() / tmp;
+    this -> _numbers.pop();
 
-    tmp = this -> numbers.top() / tmp;
-    this -> numbers.pop();
-
-    this -> numbers.push(tmp);
+    this -> _numbers.push(tmp);
 }
 
 void RPN::difference()
 {
-    int tmp = this ->numbers.top();
-    this -> numbers.pop();
+    int tmp = this ->_numbers.top();
+    this -> _numbers.pop();
 
-    tmp = tmp - this -> numbers.top();
-    this -> numbers.pop();
+    tmp = this -> _numbers.top() - tmp;
+    this -> _numbers.pop();
 
-    this -> numbers.push(tmp);
+    this -> _numbers.push(tmp);
 }
 
 void RPN::addition()
 {
-    int tmp = this ->numbers.top();
-    this -> numbers.pop();
+    int tmp = this ->_numbers.top();
+    this -> _numbers.pop();
 
-    tmp = tmp + this -> numbers.top();
-    this -> numbers.pop();
+    tmp = this -> _numbers.top() + tmp;
+    this -> _numbers.pop();
 
-    this -> numbers.push(tmp);
+    this -> _numbers.push(tmp);
 }
 
 int RPN::execute(const char *expression)
@@ -82,27 +84,30 @@ int RPN::execute(const char *expression)
     while (*expression)
     {
         i = 0;
-        if (!(*expression >= '0' && *expression <= '9'))
+        if (!isdigit(*expression) && !isspace(*expression))
         {
             int j = -1;
             while (str[++j])
             {
                 if (str[j] == *expression)
                 {
-                    (this->*helper[j])();
-                    std::cout << this -> numbers.top() << std::endl;
+                    if (this -> _numbers.size() > 1)
+                        (this->*helper[j])();
+                    else
+                        throw std::runtime_error("Error\ninvalid Operation");
                     break;
                 }
                 else if (j == 3)
                     throw std::runtime_error("Error\nUsage of undefined characters");
             }
         }
-        else
-            this -> numbers.push(*expression - '0');
+        else if (isdigit(*expression))
+            this -> _numbers.push(*expression - '0');
         while (expression[i] && expression[i + 1] == ' ')
             i++;
         expression += i + 1;
     }
-    return (this -> numbers.top());
+    if (this-> _numbers.size() != 1)
+        throw std::runtime_error("Error\nInvalid operation");
+    return (this -> _numbers.top());
 }
-//check out empty string.

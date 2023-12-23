@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 21:09:18 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/22 21:21:09 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/23 20:48:40 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class RPN
 {
     private:
-        std::stack<int> numbers;
+        std::stack<int> _numbers;
         
         void multiplication();
         void devision();
