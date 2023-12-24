@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/24 22:14:30 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:19:42 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ void Btc::processError(char *ptr)
 {
     if (*ptr)
         throw std::runtime_error("Error: not an int or a float value.");
-    //check OUT DATE error
+    //check OUT DATE error strptime and strftime
+    //year % 4 to finish leap for february and tm structure
+    //2012-1-22 is valid
     
     if (this -> input.second < 0)
         throw std::runtime_error("Error: not a positive number");
