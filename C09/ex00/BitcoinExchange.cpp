@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/24 18:16:08 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/24 22:14:30 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,23 @@ Btc::~Btc() {}
 
 void Btc::processError(char *ptr)
 {
-    char *p;
     if (*ptr)
-        throw std::runtime_error("Error: not an int or a float value");
-    //check out date should i check it with strtod , find or another method
-    //apparantely strftime
-    exit (0);
+        throw std::runtime_error("Error: not an int or a float value.");
+    //check OUT DATE error
+    
+    if (this -> input.second < 0)
+        throw std::runtime_error("Error: not a positive number");
+    else if (this -> input.second > 1000)
+        throw std::runtime_error("Error: too large a number.");
+}
+
+void Btc::execLine()
+{
+    std::map<std::string, float>::iterator ite = this -> data.lower_bound(this -> input.first);
+    
+    if (ite -> first != this -> input.first)
+        ite--;
+    std::cout << this -> input.first << " => " << this -> input.second << " = " << this -> input.second * ite -> second << std::endl;
 }
 void Btc::processLine(std::string line)
 {
@@ -51,12 +62,13 @@ void Btc::run(const char *input)
 
         getline (file, line);
         if (line != "date | value")
-            throw std::runtime_error("Error : input in wrong format"); // depends got to check this out
+            throw std::runtime_error("Error : input in wrong format."); // depends got to check this out
         while (std::getline(file, line))
         {
             try
             {
                 processLine(line);
+                execLine();
             }
             catch (std::exception &e)
             {
@@ -79,9 +91,9 @@ Btc::Btc(std::string fileName)
         {
             int delimiter = line.find(',', 0);
    
-            this -> data[line.substr(0, delimiter)] = line.substr(delimiter + 1);
+            this -> data[line.substr(0, delimiter)] = strtod(line.substr(delimiter + 1).c_str(), NULL);
         }
     }
     else
-        throw std::runtime_error("data.csv file not found");
+        throw std::runtime_error("Error : data.csv file not found.");
 }
