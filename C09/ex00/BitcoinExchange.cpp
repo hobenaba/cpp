@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/24 16:11:41 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/24 17:46:20 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,51 @@ Btc::~Btc() {}
 
 //check this out Canonical Form
 
+void Btc::processError(char *ptr)
+{
+    if (*ptr)
+        throw std::runtime_error("Error: not an int or a float value");
+    // got to check date now
+    std::cout << this -> input.first << std::endl;
+    exit (0);
+}
 void Btc::processLine(std::string line)
 {
-    //devide my string into substring
-    //use substr apparently.
-    int a = line.find(',', 0);
-    std::string str = line + a;
-    std::cout << str << std::endl;
+    char *ptr;
+    int delimiter = line.find('|');
+    
+    if (delimiter == -1)
+        throw std::runtime_error("Error: bad input => " + line.substr(0, delimiter - 1));
+    
+    this -> input.first = line.substr(0, delimiter - 1);
+    this -> input.second = strtod(line.substr(delimiter + 2).c_str(), &ptr);
+    processError(ptr);
+}
+void Btc::run(const char *input)
+{
+    std::ifstream file(input);
 
-    exit (0);
+    if (file.is_open())
+    {
+        std::string line;
+
+        getline (file, line);
+        if (line != "date | value")
+            throw std::runtime_error("Error : input in wrong format"); // depends got to check this out
+        while (std::getline(file, line))
+        {
+            try
+            {
+                processLine(line);
+            }
+            catch (std::exception &e)
+            {
+                std::cout << e.what() << std::endl;
+            }
+        }
+    }
+    else
+        throw std::runtime_error("Error: could not open file.");
 }
 Btc::Btc(std::string fileName)
 {
@@ -39,7 +75,11 @@ Btc::Btc(std::string fileName)
         std::string line;
         std::getline(file, line);
         while (std::getline(file, line))
-            processLine(line);
+        {
+            int delimiter = line.find(',', 0);
+   
+            this -> data[line.substr(0, delimiter)] = line.substr(delimiter + 1);
+        }
     }
     else
         throw std::runtime_error("data.csv file not found");
