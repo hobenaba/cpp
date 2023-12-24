@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/24 18:07:43 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/24 18:16:08 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void Btc::processError(char *ptr)
     if (*ptr)
         throw std::runtime_error("Error: not an int or a float value");
     //check out date should i check it with strtod , find or another method
+    //apparantely strftime
     exit (0);
 }
 void Btc::processLine(std::string line)
