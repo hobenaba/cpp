@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/24 22:23:59 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/27 09:42:01 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,35 @@
 Btc::~Btc() {}
 
 //check this out Canonical Form
-
+ //check OUT DATE error strptime(31 for days are included always) and strftime
+    //year % 4 to finish leap for february and tm structure
+    //2012-1-22 is valid
 void Btc::processError(char *ptr)
 {
     if (*ptr)
         throw std::runtime_error("Error: not an int or a float value.");
-    //check OUT DATE error strptime(31 for days are included always) and strftime
-    //year % 4 to finish leap for february and tm structure
-    //2012-1-22 is valid
-    //check empty file
     if (this -> input.second < 0)
         throw std::runtime_error("Error: not a positive number");
     else if (this -> input.second > 1000)
         throw std::runtime_error("Error: too large a number.");
+
+    tm t;
+    char *p = strptime (this ->input.first.c_str(), "%Y-%m-%d", &t);
+    if (p == NULL || *p)
+        throw std::runtime_error("Error : invalid format");
+    if (t.tm_mon == 1 && !(t.tm_year % 4) && t.tm_mday > 29)
+        throw std::runtime_error("Error : invalid date");
+    else if (t.tm_mon == 1 && t.tm_year % 4 && t.tm_mday > 28)
+        throw std::runtime_error("Error : invalid date");
+    if ((strchr("358", t.tm_mon + '0') || t.tm_mon == 10) && t.tm_mday > 30)
+        throw std::runtime_error("Error : invalid date");
+
+    char *buffer = NULL;
+    strftime(buffer, 10 * sizeof(char), "%Y-%m-%d", &t);
+    std::cout << buffer << std::endl;
+    if (this -> input.first != buffer)
+        this -> input.first = buffer;
+    exit (0);
 }
 
 void Btc::execLine()
@@ -63,7 +79,9 @@ void Btc::run(const char *input)
         std::string line;
 
         getline (file, line);
-        if (line != "date | value")
+        if(line == "")
+            throw std::runtime_error("Error : empty file");
+        else if (line != "date | value")
             throw std::runtime_error("Error : input in wrong format."); // depends got to check this out
         while (std::getline(file, line))
         {
