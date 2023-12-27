@@ -6,7 +6,7 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/27 11:24:59 by mac              ###   ########.fr       */
+/*   Updated: 2023/12/27 11:35:55 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,6 @@ void Btc::execLine()
     
     if (ite -> first != this -> input.first)
         ite--;
-    // std::cout << ite -> second << std::endl;
-    // exit (0);
-    //check as of last value in data.csv
     std::cout << this -> input.first << " => " << this -> input.second << " = " << this -> input.second * ite -> second << std::endl;
 }
 void Btc::processLine(std::string line)
