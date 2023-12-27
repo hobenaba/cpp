@@ -6,22 +6,31 @@
 /*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/27 09:42:01 by mac              ###   ########.fr       */
+/*   Updated: 2023/12/27 11:24:59 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-// Btc();
-// Btc(const Btc &src);
-// Btc &operator=(const Btc &src);
+Btc::Btc(){}
+Btc::Btc(const Btc &src)
+{
+    *this = src;
+}
 
-Btc::~Btc() {}
+Btc &Btc::operator=(const Btc &src)
+{
+    this -> data = src.data;
+    this -> input = src.input;
 
-//check this out Canonical Form
- //check OUT DATE error strptime(31 for days are included always) and strftime
-    //year % 4 to finish leap for february and tm structure
-    //2012-1-22 is valid
+    return (*this);
+}
+
+Btc::~Btc()
+{
+   this -> data.clear();
+}
+
 void Btc::processError(char *ptr)
 {
     if (*ptr)
@@ -41,13 +50,13 @@ void Btc::processError(char *ptr)
         throw std::runtime_error("Error : invalid date");
     if ((strchr("358", t.tm_mon + '0') || t.tm_mon == 10) && t.tm_mday > 30)
         throw std::runtime_error("Error : invalid date");
-
-    char *buffer = NULL;
+    if (t.tm_year + 1900 < 2009 || t.tm_mday < 2)
+        throw std::runtime_error("Error : date out of scope");
+    char buffer[11];
+    
     strftime(buffer, 10 * sizeof(char), "%Y-%m-%d", &t);
-    std::cout << buffer << std::endl;
     if (this -> input.first != buffer)
-        this -> input.first = buffer;
-    exit (0);
+        this -> input.first = buffer;  
 }
 
 void Btc::execLine()
@@ -56,6 +65,9 @@ void Btc::execLine()
     
     if (ite -> first != this -> input.first)
         ite--;
+    // std::cout << ite -> second << std::endl;
+    // exit (0);
+    //check as of last value in data.csv
     std::cout << this -> input.first << " => " << this -> input.second << " = " << this -> input.second * ite -> second << std::endl;
 }
 void Btc::processLine(std::string line)
@@ -73,11 +85,10 @@ void Btc::processLine(std::string line)
 void Btc::run(const char *input)
 {
     std::ifstream file(input);
+    std::string line;
 
     if (file.is_open())
     {
-        std::string line;
-
         getline (file, line);
         if(line == "")
             throw std::runtime_error("Error : empty file");

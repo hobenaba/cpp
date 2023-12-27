@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 21:12:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/23 21:37:13 by hobenaba         ###   ########.fr       */
+/*   Updated: 2023/12/27 11:14:36 by mac              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,21 @@ RPN::RPN(){}
 
 RPN::RPN(const RPN &src)
 {
-    (void)src;
+    *this = src;
 }
 
 RPN &RPN::operator=(const RPN &src)
 {
-    (void)src; 
-
+    this -> _numbers = src._numbers;
+    
     return (*this);
 }
 
-RPN::~RPN(){}
+RPN::~RPN()
+{
+    while(!this ->_numbers.empty())
+        this -> _numbers.pop();
+}
 
 //got to check this out canonical form 
 
