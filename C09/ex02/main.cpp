@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:48:23 by mac               #+#    #+#             */
-/*   Updated: 2024/01/02 16:16:13 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/02 17:57:59 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,79 +59,113 @@ std::vector<int> checkErrors(char **av)
 	return (v);
 }
 
-void sortPairs(std::pair<int, int> myPairs[], int size)
+void sortPairs(std::vector<std::pair<int, int> >::iterator begin, std::vector<std::pair<int, int> >::iterator end)
 {
-	int j = -1;
 	int tmp;
 	
-	while (++j < size)
+	while (++begin != end)
 	{
-		if (myPairs[j].first < myPairs[j].second)
+		if (begin -> first < begin -> second)
 		{
-			tmp = myPairs[j].first;
-			myPairs[j].first = myPairs[j].second;
-			myPairs[j].second = tmp;
+			tmp = begin -> first;
+			begin -> first = begin -> second;
+			begin -> second = tmp;
 		}
 	}
 }
 
 template <typename T>
 
-T maxArray(std::pair<int, int> myPairs[], int size)
+T maxArray(std::vector<std::pair<int, int> >::iterator begin, std::vector<std::pair<int, int> >::iterator end)
 {
 	T container;
-
-	int i = -1;
-	while (++i < size)
-		container.push_back(myPairs[i].first);
+	
+	while (++begin != end)
+		container.push_back(begin -> first);
 	return (container);
 }
 template <typename T>
 
 T sort(T container)
 {
-
+	bool status = false;
+	int num = 0;
 	if (container.size() == 1)
 		return (container);
 	if ((container.size() % 2))
 	{
-		int num = container.back();
-		(void)num;
+		status = true;
+		num = container.back(); // how do i know that i do have it with bool
 		container.pop_back();
 	}
-	std::pair<int, int> myPairs[container.size() / 2];
+	std::vector<std::pair<int, int> > myPairs;
 	typename T::iterator ite = container.begin();
 
-	int i = -1;
 	while (ite != container.end())
 	{
-		myPairs[++i] = std::make_pair(*ite, *(ite + 1));
+		myPairs.push_back(std::make_pair(*ite, *(ite + 1)));
 		ite++;
 		ite++;	
 	}
-	sortPairs(myPairs, container.size() / 2);
-	// unsigned long a = -1;
-	// int j = 0;
-	// while (++a < container.size() / 2)
+	
+	std::vector<std::pair<int, int> >::iterator test = myPairs.begin() - 1;
+	//int j = 0;
+	// while (++test < myPairs.end())
 	// {
-	// 	std::cout << ++j <<  " pair : ";
-	// 	std::cout << myPairs[a].first << " " << myPairs[a].second << std::endl;
+	// 	std::cout << "pair " << ++j << " : ";
+	// 	std::cout << (test ->first) << " " << (test -> second) << std::endl;
+	// }
+	sortPairs(myPairs.begin() -1, myPairs.end());
+	test = myPairs.begin() - 1;
+	//std::cout << "--after sorting --" << std::endl;
+	// j = 0;
+	// while (++test < myPairs.end())
+	// {
+	// 	std::cout << "pair " << ++j << " : ";
+	// 	std::cout << (test ->first) << " " << (test -> second) << std::endl;
 	// }
 	// std::cout << std::endl;
-	container = maxArray<T>(myPairs, container.size() / 2);
+	container = maxArray<T>(myPairs.begin() -1, myPairs.end());
+	// std::cout << "my max array" << std::endl;
+	// typename T::iterator t = container.begin() - 1;
+
+	// while (++t != container.end())
+	// 	std::cout << *t << std::endl;
 	T save = sort(container);
-	// int u = -1;
-	// while (++u < container.size / 2)
-	// {
-	// 	// 
-	// 	myPairs.lowerBound
-	// }
-	// typename T::iterator ju = save.begin() - 1;
+	//std::cout << num << std::endl;
+	//exit (0);
+	test = myPairs.begin () - 1;
+	//std::cout << "the real thing work\n";
+	while (++test != myPairs.end())
+	{
+		typename T::iterator h = std::lower_bound(save.begin(), save.end(), test -> second);
+		save.insert(h, test -> second);
+	}
+	if (status == true)
+	{
+		// typename T::iterator ju = save.begin() - 1;
+
+		// while (++ju != save.end())
+		// 	std::cout << *ju << " ";
+		// std::cout << std::endl;
+		save.insert(std::lower_bound(save.begin(), save.end(), num), num);
+		// ju = save.begin() - 1;
+
+		// while (++ju != save.end())
+		// 	std::cout << *ju << " ";
+		// std::cout << std::endl;
+		// exit (0);
+	}
+	// std::vector<int>::iterator e = save.begin() -1;
+	// std::cout << "what is in hier" << std::endl;
+	// while (++e != save.end())
+	// 	std::cout << *e << " ";
+	// std::cout << std::endl;
+	//typename T::iterator ju = save.begin() - 1;
 
 	// while (++ju != save.end())
 	// 	std::cout << *ju << " ";
 	// std::cout << std::endl;
-	exit (0);
 	return (save);
 }
 // i ll clean the code later on.
@@ -147,11 +181,10 @@ int main (int ac, char **av)
 		std::cout << "Before : ";
 		print(v);
 		sort(v);
-
-		std::vector<int>::iterator ite = v.begin() -1;
-		while (++ite != v.end())
-			std::cout << *ite << " ";
-		std::cout << std::endl;
+		// std::vector<int>::iterator ite = v.begin() -1;
+		// while (++ite != v.end())
+		// 	std::cout << *ite << " ";
+		// std::cout << std::endl;
 	}
 	catch(std::exception &e)
 	{
