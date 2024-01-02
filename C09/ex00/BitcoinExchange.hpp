@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:28:59 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/27 08:40:13 by mac              ###   ########.fr       */
+/*   Updated: 2024/01/02 19:42:14 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Btc
 {
     private:
         std::map<std::string, float> data;
-        std::pair<std::string, float> input;
+        std::pair<std::string, float> input; // remove the pair container.
         void processLine(std::string line);
         void processError(char *ptr);
         void execLine();

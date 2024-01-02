@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:48:36 by mac               #+#    #+#             */
-/*   Updated: 2024/01/02 18:37:23 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/02 19:48:58 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <list>
 
