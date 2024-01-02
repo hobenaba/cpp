@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:48:23 by mac               #+#    #+#             */
-/*   Updated: 2024/01/02 18:11:10 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/02 18:42:39 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,11 @@ T sort(T container)
 	return (save);
 }
 // should clean the code in this part.
-
+//  1sec = 10e6 Usec
 int main (int ac, char **av)
 {
 	std::vector<int> v;
+	unsigned long size;
 	try
 	{
 		if (ac <= 2)
@@ -137,9 +138,13 @@ int main (int ac, char **av)
 		v = checkErrors(av + 1);
 		std::cout << "Before : ";
 		print(v);
+		size = v.size();
 		v = sort(v);
 		std::cout << "After : ";
 		print(v);
+		std::cout << "Time to process a range of " << size 
+			<< " with std::vector : " << "TIME" << " us"<< std::endl;
+			//convert it to microsec ..
 	}
 	catch(std::exception &e)
 	{
