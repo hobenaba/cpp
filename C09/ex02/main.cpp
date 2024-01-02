@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:48:23 by mac               #+#    #+#             */
-/*   Updated: 2024/01/02 17:57:59 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/02 18:11:10 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ T sort(T container)
 	if ((container.size() % 2))
 	{
 		status = true;
-		num = container.back(); // how do i know that i do have it with bool
+		num = container.back();
 		container.pop_back();
 	}
 	std::vector<std::pair<int, int> > myPairs;
@@ -107,35 +107,13 @@ T sort(T container)
 		ite++;
 		ite++;	
 	}
-	
 	std::vector<std::pair<int, int> >::iterator test = myPairs.begin() - 1;
-	//int j = 0;
-	// while (++test < myPairs.end())
-	// {
-	// 	std::cout << "pair " << ++j << " : ";
-	// 	std::cout << (test ->first) << " " << (test -> second) << std::endl;
-	// }
+	
 	sortPairs(myPairs.begin() -1, myPairs.end());
 	test = myPairs.begin() - 1;
-	//std::cout << "--after sorting --" << std::endl;
-	// j = 0;
-	// while (++test < myPairs.end())
-	// {
-	// 	std::cout << "pair " << ++j << " : ";
-	// 	std::cout << (test ->first) << " " << (test -> second) << std::endl;
-	// }
-	// std::cout << std::endl;
 	container = maxArray<T>(myPairs.begin() -1, myPairs.end());
-	// std::cout << "my max array" << std::endl;
-	// typename T::iterator t = container.begin() - 1;
-
-	// while (++t != container.end())
-	// 	std::cout << *t << std::endl;
 	T save = sort(container);
-	//std::cout << num << std::endl;
-	//exit (0);
 	test = myPairs.begin () - 1;
-	//std::cout << "the real thing work\n";
 	while (++test != myPairs.end())
 	{
 		typename T::iterator h = std::lower_bound(save.begin(), save.end(), test -> second);
@@ -143,35 +121,14 @@ T sort(T container)
 	}
 	if (status == true)
 	{
-		// typename T::iterator ju = save.begin() - 1;
-
-		// while (++ju != save.end())
-		// 	std::cout << *ju << " ";
-		// std::cout << std::endl;
 		save.insert(std::lower_bound(save.begin(), save.end(), num), num);
-		// ju = save.begin() - 1;
-
-		// while (++ju != save.end())
-		// 	std::cout << *ju << " ";
-		// std::cout << std::endl;
-		// exit (0);
 	}
-	// std::vector<int>::iterator e = save.begin() -1;
-	// std::cout << "what is in hier" << std::endl;
-	// while (++e != save.end())
-	// 	std::cout << *e << " ";
-	// std::cout << std::endl;
-	//typename T::iterator ju = save.begin() - 1;
-
-	// while (++ju != save.end())
-	// 	std::cout << *ju << " ";
-	// std::cout << std::endl;
 	return (save);
 }
-// i ll clean the code later on.
+// should clean the code in this part.
+
 int main (int ac, char **av)
 {
-	(void)av;
 	std::vector<int> v;
 	try
 	{
@@ -180,11 +137,9 @@ int main (int ac, char **av)
 		v = checkErrors(av + 1);
 		std::cout << "Before : ";
 		print(v);
-		sort(v);
-		// std::vector<int>::iterator ite = v.begin() -1;
-		// while (++ite != v.end())
-		// 	std::cout << *ite << " ";
-		// std::cout << std::endl;
+		v = sort(v);
+		std::cout << "After : ";
+		print(v);
 	}
 	catch(std::exception &e)
 	{
