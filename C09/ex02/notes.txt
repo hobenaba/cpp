@@ -1,0 +1,13 @@
+TASK1 : have a fct that takes my array and devise them to pairs, it returns
+that container i have passed as a parameter
+
+TASK2 : FCT that sort my pairs(big,small) and return to me a container(template)
+that i will pass to my first functin
+
+RQ : when the returned array equals 1, the recursion stop
+
+//TASK3: the merge starts here , i will take left numeber in the array and add 
+its pair to the left, the others that will left i will add them
+(lower_bound , insert) algorithm. => binary search.
+
+rq : check if sorted beforehand or not
