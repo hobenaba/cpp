@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:28:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2024/01/03 15:33:07 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:49:55 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,29 @@ PmergeMe::PmergeMe(char **av)
     if (size + 1 == this -> size)
         	throw std::runtime_error("Error : Numbers already sorted");
 }
-void PmergeMe::sortPairs(lpite begin, lpite end)
-{
-	int tmp;
-	
+void PmergeMe::maxArray(vpite begin, vpite end)
+{	
+    this -> v.clear();
 	while (++begin != end)
+		this ->v.push_back(begin -> first);
+}
+void PmergeMe::sorting(vp myPairs, std::vector<int> &container, int status, int num)
+{
+    vpite ite = myPairs.begin() - 1;
+	while (++ite != myPairs.end())
 	{
-		if (begin -> first < begin -> second)
-		{
-			tmp = begin -> first;
-			begin -> first = begin -> second;
-			begin -> second = tmp;
-		}
+		vi ite2 = std::lower_bound(container.begin(), container.end(), ite -> second);
+		container.insert(ite2, ite -> second);
 	}
+	if (status == true)
+		container.insert(std::lower_bound(container.begin(), container.end(), num), num);
 }
-std::vector<int> PmergeMe::maxArray(vpite begin, vpite end)
-{
-	std::vector<int> container;
-	
-	while (++begin != end)
-		container.push_back(begin -> first);
-	return (container);
-}
-
 void PmergeMe::sort(std::vector<int> &container)
 {
+	vi ite = container.begin();
 	bool status = false;
 	int num = 0;
+	vp myPairs;
     
 	if (container.size() == 1)
 		return ;
@@ -88,40 +84,16 @@ void PmergeMe::sort(std::vector<int> &container)
 		num = container.back();
 		container.pop_back();
 	}
-    
-	vp myPairs;
-	vi ite = container.begin();
-
 	while (ite != container.end())
 	{
 		myPairs.push_back(std::make_pair(*ite, *(++ite)));
 		ite++;	
 	}
-	vpite test = myPairs.begin() - 1;
-	
 	sortPairs(myPairs.begin() -1, myPairs.end());
-	test = myPairs.begin() - 1;
-	container = maxArray(myPairs.begin() -1, myPairs.end());
+	maxArray(myPairs.begin() -1, myPairs.end());
 	sort(container);
-	test = myPairs.begin () - 1;
-	while (++test != myPairs.end())
-	{
-		vi h = std::lower_bound(container.begin(), container.end(), test -> second);
-		container.insert(h, test -> second);
-	}
-	if (status == true)
-		container.insert(std::lower_bound(container.begin(), container.end(), num), num);
+	sorting(myPairs, container, status, num);
 }
-
-// std::list<int> maxArray(lpite begin, lpite end)
-// {
-// 	std::list<int> container;
-	
-// 	while (++begin != end)
-// 		container.push_back(begin -> first);
-// 	return (container);
-// }
-
 void PmergeMe::sortPairs(vpite begin, vpite end)
 {
 	int tmp;
@@ -137,36 +109,59 @@ void PmergeMe::sortPairs(vpite begin, vpite end)
 	}
 }
 
-// void sort(std::list<int> &container)
-// {
-// 	bool status = false;
-// 	int num = 0;
-// 	if (container.size() == 1)
-// 		return ;
-// 	if ((container.size() % 2))
-// 	{
-// 		status = true;
-// 		num = container.back();
-// 		container.pop_back();
-// 	}
-// 	std::list<std::pair<int, int> > myPairs;
-// 	std::list<int>::iterator ite = container.begin();
-// 	while (ite != container.end())
-// 	{
-// 		myPairs.push_back(std::make_pair(*ite, *(++ite)));
-// 		ite++;
-// 	}
-// 	lpite test = --myPairs.begin();
+void PmergeMe::maxArray(lpite begin, lpite end)
+{	
+    this -> l.clear();
+	while (++begin != end)
+		this ->l.push_back(begin -> first);
+}
+void PmergeMe::sorting(lp myPairs, std::list<int> &container, int status, int num)
+{
+    lpite ite = --myPairs.begin();
+	while (++ite != myPairs.end())
+	{
+		li ite2 = std::lower_bound(container.begin(), container.end(), ite -> second);
+		container.insert(ite2, ite -> second);
+	}
+	if (status == true)
+		container.insert(std::lower_bound(container.begin(), container.end(), num), num);
+}
+void PmergeMe::sort(std::list<int> &container)
+{
+	li ite = container.begin();
+	bool status = false;
+	int num = 0;
+	lp myPairs;
+    
+	if (container.size() == 1)
+		return ;
+	if ((container.size() % 2))
+	{
+		status = true;
+		num = container.back();
+		container.pop_back();
+	}
+	while (ite != container.end())
+	{
+		myPairs.push_back(std::make_pair(*ite, *(++ite)));
+		ite++;	
+	}
+	sortPairs(--myPairs.begin(), myPairs.end());
+	maxArray(--myPairs.begin(), myPairs.end());
+	sort(container);
+	sorting(myPairs, container, status, num);
+}
+void PmergeMe::sortPairs(lpite begin, lpite end)
+{
+	int tmp;
 	
-// 	sortPairs(--myPairs.begin(), myPairs.end());
-// 	container = maxArray(--myPairs.begin(), myPairs.end());
-// 	sort(container);
-// 	test = --myPairs.begin ();
-// 	while (++test != myPairs.end())
-// 	{
-// 		std::list<int>::iterator h = std::lower_bound(container.begin(), container.end(), test -> second);
-// 		container.insert(h, test -> second);
-// 	}
-// 	if (status == true)
-// 		container.insert(std::lower_bound(container.begin(), container.end(), num), num);
-// }
+	while (++begin != end)
+	{
+		if (begin -> first < begin -> second)
+		{
+			tmp = begin -> first;
+			begin -> first = begin -> second;
+			begin -> second = tmp;
+		}
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:48:36 by mac               #+#    #+#             */
-/*   Updated: 2024/01/03 15:29:58 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/03 15:49:14 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #define vpite std::vector<std::pair<int, int> >::iterator
 #define vp std::vector<std::pair<int, int> >
 #define vi std::vector<int>::iterator
+#define li std::list<int>::iterator
+#define lp std::list<std::pair<int, int> >
 
 //add canonical form;
 class PmergeMe 
@@ -29,10 +31,12 @@ class PmergeMe
         std::vector<int>	v;
 	    std::list<int>		l;
 	    int	size;
-        std::vector<int> maxArray(vpite begin, vpite end);
-        std::list<int> maxArray(lpite begin, lpite end);
+        void maxArray(vpite begin, vpite end);
         void sortPairs(lpite begin, lpite end);
         void sortPairs(vpite begin, vpite end);
+        void maxArray(lpite begin, lpite end);
+        void sorting(vp myPairs, std::vector<int> &container, int status, int num);
+        void sorting(lp myPairs, std::list<int> &container, int status, int num);
     public:
         PmergeMe(char **av);
         int             &getSize();
