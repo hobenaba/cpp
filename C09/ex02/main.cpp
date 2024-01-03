@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:48:23 by mac               #+#    #+#             */
-/*   Updated: 2024/01/02 20:12:01 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:25:37 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ template <typename T>
 
 void print(T container)
 {
-	typename T::iterator ite = container.begin() - 1;
+	typename T::iterator ite = --container.begin();
 
 	while (++ite != container.end())
 	{
@@ -180,18 +180,19 @@ std::list<int> sort(std::list<int> container)
 		save.insert(std::lower_bound(save.begin(), save.end(), num), num);
 	}
 	
-	return (container);
+	return (save);
 }
 
 int main (int ac, char **av)
 {
-	std::vector<int> v;
-	std::list<int> l;
-	unsigned long size;
+	std::vector<int>	v;
+	std::list<int>		l;
+	int	size;
 	try
 	{
 		if (ac <= 2)
 			throw std::runtime_error("Error : ./PmergeMe <numbers to sort>");
+		
 		v = checkErrors(av + 1);
 
 		std::vector<int>::iterator ite = v.begin() - 1;
@@ -211,19 +212,9 @@ int main (int ac, char **av)
 		start = clock();
 		l = sort(l);
 		end = clock();
-			std::cout << "Time to process a range of " << size 
-			<< " with std::list : " << (static_cast<double>(end -start)/CLOCKS_PER_SEC)
-			* 1000000 << " us"<< std::endl;
-		std::list<int>::iterator ite1 = --l.begin();
-
-		while (++ite1 != l.end())
-		{
-			if (ite1 != l.begin())
-				std::cout << ' ';
-			std::cout << *ite1;
-		}
-	std::cout << std::endl;
-		
+		std::cout << "Time to process a range of " << size 
+		<< " with std::list : " << (static_cast<double>(end -start)/CLOCKS_PER_SEC)
+		* 1000000 << " us"<< std::endl;
 	}
 	catch(std::exception &e)
 	{
@@ -232,4 +223,3 @@ int main (int ac, char **av)
 }
 //clean the code later on
 //`jot -r 3000 1 1000 | tr '\n' ' '`
-//list is not working
