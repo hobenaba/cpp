@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 20:48:36 by mac               #+#    #+#             */
-/*   Updated: 2024/01/03 15:49:14 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/03 17:58:36 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 #define li std::list<int>::iterator
 #define lp std::list<std::pair<int, int> >
 
-//add canonical form;
 class PmergeMe 
 {
     private:
@@ -37,8 +36,14 @@ class PmergeMe
         void maxArray(lpite begin, lpite end);
         void sorting(vp myPairs, std::vector<int> &container, int status, int num);
         void sorting(lp myPairs, std::list<int> &container, int status, int num);
+
+        PmergeMe();
     public:
         PmergeMe(char **av);
+        PmergeMe(const PmergeMe &src);
+        PmergeMe &operator=(const PmergeMe &src);
+        ~PmergeMe();
+        
         int             &getSize();
         std::vector<int> &getFirstContainer();
         std::list<int> &getSecondContainer();

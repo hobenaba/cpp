@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/27 11:35:55 by mac              ###   ########.fr       */
+/*   Updated: 2024/01/03 17:55:58 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ void Btc::processLine(std::string line)
     
     if (delimiter == -1)
         throw std::runtime_error("Error: bad input => " + line.substr(0, delimiter - 1));
-    
+    if ((!(line[delimiter + 2] >= '0' && line[delimiter + 2] <= '9')
+        && (line[delimiter + 2] != '+' && line[delimiter + 2] != '-'))
+        || line[delimiter - 1] != ' ')
+        throw std::runtime_error("Error: invalid format");
+
     this -> input.first = line.substr(0, delimiter - 1);
     this -> input.second = strtod(line.substr(delimiter + 2).c_str(), &ptr);
     processError(ptr);
@@ -90,7 +94,7 @@ void Btc::run(const char *input)
         if(line == "")
             throw std::runtime_error("Error : empty file");
         else if (line != "date | value")
-            throw std::runtime_error("Error : input in wrong format."); // depends got to check this out
+            throw std::runtime_error("Error : input in wrong format.");
         while (std::getline(file, line))
         {
             try
@@ -124,4 +128,5 @@ Btc::Btc(std::string fileName)
     }
     else
         throw std::runtime_error("Error : data.csv file not found.");
+    file.close();
 }

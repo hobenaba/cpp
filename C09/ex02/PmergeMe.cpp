@@ -6,12 +6,32 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 14:28:48 by hobenaba          #+#    #+#             */
-/*   Updated: 2024/01/03 15:49:55 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/03 18:00:19 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+
+PmergeMe::PmergeMe(){}
+
+PmergeMe::PmergeMe(const PmergeMe &src)
+{
+    *this = src;
+}
+PmergeMe &PmergeMe::operator=(const PmergeMe &src)
+{
+    this -> l = src.l;
+    this -> v = src.v;
+    this ->size = src.size;
+
+    return (*this);
+}
+PmergeMe::~PmergeMe()
+{
+    this -> l.clear();
+    this -> v.clear();
+}
 std::vector<int> &PmergeMe::getFirstContainer()
 {
     return (this -> v);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mac <mac@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 21:12:47 by hobenaba          #+#    #+#             */
-/*   Updated: 2023/12/27 11:14:36 by mac              ###   ########.fr       */
+/*   Updated: 2024/01/03 17:57:09 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void RPN::devision()
     this -> _numbers.pop();
     
     if (tmp == 0)
-        throw std::runtime_error("Error\nDevision on 0");
+        throw std::runtime_error("Error : Devision on 0");
     tmp = this -> _numbers.top() / tmp;
     this -> _numbers.pop();
 
@@ -92,11 +92,11 @@ void RPN::checkChar(char c)
             if (this -> _numbers.size() > 1)
                 (this->*helper[j])();
             else
-                throw std::runtime_error("Error\ninvalid Operation");
+                throw std::runtime_error("Error : invalid Operation");
             break;
         }
         else if (j == 3)
-            throw std::runtime_error("Error\nUsage of undefined characters");
+            throw std::runtime_error("Error : Usage of undefined characters");
     }
 }
 int RPN::execute(const char *expression)
@@ -115,6 +115,6 @@ int RPN::execute(const char *expression)
         expression += i + 1;
     }
     if (this-> _numbers.size() != 1)
-        throw std::runtime_error("Error\nInvalid operation");
+        throw std::runtime_error("Error : Invalid operation");
     return (this -> _numbers.top());
 }
