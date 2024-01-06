@@ -6,7 +6,7 @@
 /*   By: hobenaba <hobenaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 15:47:10 by hobenaba          #+#    #+#             */
-/*   Updated: 2024/01/03 17:55:58 by hobenaba         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:48:01 by hobenaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void Btc::processError(char *ptr)
     tm t;
     char *p = strptime (this ->input.first.c_str(), "%Y-%m-%d", &t);
     if (p == NULL || *p)
-        throw std::runtime_error("Error : invalid format");
+        throw std::runtime_error("Error : invalid date");
     if (t.tm_mon == 1 && !(t.tm_year % 4) && t.tm_mday > 29)
         throw std::runtime_error("Error : invalid date");
     else if (t.tm_mon == 1 && t.tm_year % 4 && t.tm_mday > 28)
@@ -78,9 +78,12 @@ void Btc::processLine(std::string line)
         && (line[delimiter + 2] != '+' && line[delimiter + 2] != '-'))
         || line[delimiter - 1] != ' ')
         throw std::runtime_error("Error: invalid format");
-
+    std::string str = line.substr(delimiter + 1);
+    if (str[str.length() - 1] == '.')
+        throw std::runtime_error("Error : invalid format");
     this -> input.first = line.substr(0, delimiter - 1);
-    this -> input.second = strtod(line.substr(delimiter + 2).c_str(), &ptr);
+    this -> input.second = strtod(str.c_str(), &ptr);
+    
     processError(ptr);
 }
 void Btc::run(const char *input)
@@ -91,9 +94,7 @@ void Btc::run(const char *input)
     if (file.is_open())
     {
         getline (file, line);
-        if(line == "")
-            throw std::runtime_error("Error : empty file");
-        else if (line != "date | value")
+        if (line != "date | value")
             throw std::runtime_error("Error : input in wrong format.");
         while (std::getline(file, line))
         {
